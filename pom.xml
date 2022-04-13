@@ -28,6 +28,7 @@
         </dependency>
     </dependencies>
     <build>
-        <defaultGoal>install</defaultGoal>
+        <directory>${project.basedir}/target</directory>
+        <defaultGoal>clean test</defaultGoal>
     </build>
 </project>
