@@ -13,7 +13,7 @@ Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant 
 - Test d'une implémentation donnée
 
 Le projet consiste à mettre en place un outil d’analyse statistique pour le jeu Pokémon GO.  
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la tl.Main.
 
 ## Sujets
 
