@@ -15,6 +15,7 @@
 
 
     <build>
+        <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
         <pluginManagement>
             <plugins>
                 <plugin>
