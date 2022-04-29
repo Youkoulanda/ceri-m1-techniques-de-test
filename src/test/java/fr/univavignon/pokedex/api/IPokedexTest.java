@@ -59,4 +59,28 @@ public class IPokedexTest {
         //then
         assertEquals(2,this.pokedex.size());
     }
+
+    @Test
+    public void ShouldAddPokemon() {
+
+        // giving
+        Pokemon newPokemon = new Pokemon(
+                133,
+                "Aquali",
+                186,
+                186,
+                260,
+                2729,
+                202,
+                5000,
+                4,
+                100.0
+        );
+
+        // when
+        Mockito.doReturn(newPokemon.getIndex()).when(this.pokedex).addPokemon(newPokemon);
+
+        //then
+        assertEquals(newPokemon.getIndex(),this.pokedex.addPokemon(newPokemon));
+    }
 }
