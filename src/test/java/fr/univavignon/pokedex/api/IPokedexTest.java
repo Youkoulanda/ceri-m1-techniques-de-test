@@ -2,7 +2,6 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -132,6 +131,48 @@ public class IPokedexTest {
         // Content check
         assertEquals(unmodifiablePokemons.get(0),this.pokedex.getPokemons().get(0));
         assertEquals(unmodifiablePokemons.get(1),this.pokedex.getPokemons().get(1));
+    }
+
+    @Test
+    public void ShouldGetSortedPokemons(){
+
+        // given
+        PokemonComparators nameComparator = PokemonComparators.NAME;
+        PokemonComparators indexComparator = PokemonComparators.INDEX;
+        PokemonComparators cpComparator = PokemonComparators.CP;
+
+        List<Pokemon> nameSortedPokemons = new ArrayList<>(this.pokemons);
+        nameSortedPokemons.sort(nameComparator);
+
+        List<Pokemon> indexSortedPokemons = new ArrayList<>(this.pokemons);
+        indexSortedPokemons.sort(indexComparator);
+
+        List<Pokemon> cpSortedPokemons = new ArrayList<>(this.pokemons);
+        cpSortedPokemons.sort(cpComparator);
+
+        List<Pokemon> expectedUnmodifiableList = Collections.unmodifiableList(new ArrayList<>());
+
+
+
+        // when
+
+        Mockito.doReturn(Collections.unmodifiableList(nameSortedPokemons)).when(this.pokedex).getPokemons(nameComparator);
+        Mockito.doReturn(Collections.unmodifiableList(indexSortedPokemons)).when(this.pokedex).getPokemons(indexComparator);
+        Mockito.doReturn(Collections.unmodifiableList(cpSortedPokemons)).when(this.pokedex).getPokemons(cpComparator);
+
+        // then
+
+        // Class Name check
+        assertEquals(expectedUnmodifiableList.getClass(),this.pokedex.getPokemons(nameComparator).getClass());
+        // Size check
+        assertEquals(indexSortedPokemons.size(),this.pokedex.getPokemons(indexComparator).size());
+        // Content check
+        assertEquals(aquali,this.pokedex.getPokemons(nameComparator).get(0));
+        assertEquals(bulbizarre,this.pokedex.getPokemons(indexComparator).get(0));
+        assertEquals(bulbizarre,this.pokedex.getPokemons(cpComparator).get(0));
+
+
+
     }
 
 
