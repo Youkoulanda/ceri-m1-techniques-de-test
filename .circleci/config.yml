@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           name: Test
-            command: mvn test
+          command: mvn test
       - codecov/upload:
           file: /target/site/jacoco/jacoco.xml
 
