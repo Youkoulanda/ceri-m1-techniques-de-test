@@ -7,23 +7,27 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
+  build-test:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: cimg/base:stable
+      - image: cimg/openjdk:11.0
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
       - run:
+          name: Build
+          command: mvn -B -DskipTests clean package
+      # Then run your tests!
+      - run:
           name: Test
-          command: mvn test
+          command: mvn clean test
       - codecov/upload:
-            file: /target/site/jacoco/jacoco.xml
+          file: /target/site/jacoco/jacoco.xml
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  build:
     jobs:
-      - say-hello
+      - build-test
