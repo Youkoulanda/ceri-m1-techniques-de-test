@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PokemonMetadataProvider implements IPokemonMetadataProvider{
 
-    private final List<PokemonMetadata> pokemonMetadataList;
+    public final List<PokemonMetadata> pokemonMetadataList;
 
 
 
