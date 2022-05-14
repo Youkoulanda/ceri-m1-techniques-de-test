@@ -30,4 +30,7 @@ jobs:
 workflows:
   build:
     jobs:
-      - build-test
+      - build-test:
+          filters:
+            branches:
+              only: master
