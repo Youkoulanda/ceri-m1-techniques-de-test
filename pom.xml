@@ -86,12 +86,12 @@
                     <version>1.0.0</version>
                     <executions>
                         <execution>
-                            <phase>post-site</phase>
+                            <phase>test</phase>
                             <goals>
                                 <goal>badges</goal>
                             </goals>
                             <configuration>
-                                <outputDir>target/size/badges</outputDir>
+                                <outputDir>target/site/badges</outputDir>
                                 <inputFiles>
                                     <inputFile>target/checkstyle-result.xml</inputFile>
                                 </inputFiles>

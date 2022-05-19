@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/iammouadagr/ceri-m1-techniques-de-test.svg?style=svg)]((https:circleci.com/gh/iammouadagr/ceri-m1-techniques-de-test/?branch=master))
 [![codecov](https://codecov.io/gh/iammouadagr/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=OH75T5DQUB)](https://codecov.io/gh/iammouadagr/ceri-m1-techniques-de-test)
+![Checkstyle](target/site/badges/checkstyle-result.svg)
+
 ## AGUIRAR MOUAD - M1 - ILSEN - GRP1
 
 
