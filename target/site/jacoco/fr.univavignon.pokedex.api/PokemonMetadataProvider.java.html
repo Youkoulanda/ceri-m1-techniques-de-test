@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonMetadataProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ceri-m1-techniques-de-test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonMetadataProvider.java</span></div><h1>PokemonMetadataProvider.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PokemonMetadataProvider implements IPokemonMetadataProvider{
+
+    public final List&lt;PokemonMetadata&gt; pokemonMetadataList;
+
+
+
+<span class="nc" id="L12">    public PokemonMetadataProvider () {</span>
+<span class="nc" id="L13">        pokemonMetadataList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L14">        PokemonMetadata bulbizarre = new PokemonMetadata(</span>
+                0,
+                &quot;Bulbizarre&quot;,
+                126,
+                126,
+                90
+        );
+<span class="nc" id="L21">        PokemonMetadata aquali = new PokemonMetadata(</span>
+                133,
+                &quot;Aquali&quot;,
+                186,
+                168,
+                260);
+
+<span class="nc" id="L28">        pokemonMetadataList.add(bulbizarre);</span>
+<span class="nc" id="L29">        pokemonMetadataList.add(aquali);</span>
+<span class="nc" id="L30">    }</span>
+
+    /**
+     * Retrieves and returns the metadata for the pokemon
+     * denoted by the given &lt;tt&gt;index&lt;/tt&gt;.
+     *
+     * @param index Index of the pokemon to retrieve metadata for.
+     * @return Metadata of the pokemon.
+     * @throws PokedexException If the given &lt;tt&gt;index&lt;/tt&gt; is not valid.
+     */
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+
+<span class="nc" id="L43">        PokemonMetadata results = null;</span>
+
+<span class="nc bnc" id="L45" title="All 4 branches missed.">        if(index &lt; 0 || index &gt; 150) throw new PokedexException(&quot;Invalid given index&quot;);</span>
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        for (PokemonMetadata pokemonMetadata : pokemonMetadataList){</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if(pokemonMetadata.getIndex() == index) results =pokemonMetadata ;</span>
+<span class="nc" id="L49">        }</span>
+
+<span class="nc" id="L51">        return results;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

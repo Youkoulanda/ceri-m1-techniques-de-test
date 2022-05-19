@@ -1,0 +1,5 @@
+#Thu May 19 19:35:56 CEST 2022
+configuration*?=FBDF9611667C652C843BFAAE71DA97A4BB32D094
+module-resource*?\:checkstyle-xpath-suppressions.xml=8F5B35BFD9555EEF1B6A4BB5C1713596091199D9
+module-resource*?\:checkstyle-suppressions.xml=5539A4558D39297A39E6BAD40CD8115FE676DD73
+C\:\\Users\\hp\\Desktop\\M1\\uce_techniques_test\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexException.java=1649993447922

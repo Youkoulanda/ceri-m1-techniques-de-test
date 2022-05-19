@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokedex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ceri-m1-techniques-de-test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">Pokedex.java</span></div><h1>Pokedex.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Pokedex implements IPokedex{
+
+    private final List&lt;Pokemon&gt; pokemonList;
+
+<span class="nc" id="L12">    public Pokedex() {</span>
+<span class="nc" id="L13">        pokemonList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L14">        Pokemon  bulbizarre = new Pokemon(0,</span>
+                &quot;Bulbizarre&quot;,
+                126,
+                126,
+                90,
+                613,
+                64,
+                4000,
+                4,
+                56.0
+        );
+
+<span class="nc" id="L26">        Pokemon  aquali =  new Pokemon(</span>
+                133,
+                &quot;Aquali&quot;,
+                186,
+                186,
+                260,
+                2729,
+                202,
+                5000,
+                4,
+                100.0
+        );
+
+<span class="nc" id="L39">        pokemonList.add(bulbizarre);</span>
+<span class="nc" id="L40">        pokemonList.add(aquali);</span>
+<span class="nc" id="L41">    }</span>
+    /**
+     * Returns the number of pokemon this pokedex contains.
+     *
+     * @return Number of pokemon in this pokedex.
+     */
+    @Override
+    public int size() {
+<span class="nc" id="L49">        return pokemonList.size();</span>
+    }
+
+    /**
+     * Adds the given &lt;tt&gt;pokemon&lt;/tt&gt; to this pokedex and returns
+     * it unique index.
+     *
+     * @param pokemon Pokemon to add to this pokedex.
+     * @return Index of this pokemon relative to this pokedex.
+     */
+    @Override
+    public int addPokemon(Pokemon pokemon) {
+<span class="nc" id="L61">        pokemonList.add(pokemon);</span>
+<span class="nc" id="L62">        return size()+1;</span>
+    }
+
+    /**
+     * Locates the pokemon identified by the given &lt;tt&gt;id&lt;/tt&gt;.
+     *
+     * @param id Unique pokedex relative identifier.
+     * @return Pokemon denoted by the given identifier.
+     * @throws PokedexException If the given &lt;tt&gt;index&lt;/tt&gt; is not valid.
+     */
+    @Override
+    public Pokemon getPokemon(int id) throws PokedexException {
+
+        Pokemon pokemon;
+        try {
+<span class="nc" id="L77">            pokemon = pokemonList.get(id);</span>
+<span class="nc" id="L78">        } catch (IndexOutOfBoundsException e) {</span>
+<span class="nc" id="L79">            throw new PokedexException(&quot;Invalid given index&quot;);</span>
+<span class="nc" id="L80">        }</span>
+<span class="nc" id="L81">        return pokemon;</span>
+    }
+
+    /**
+     * Returns an unmodifiable list of all pokemons this pokedex contains.
+     *
+     * @return Unmodifiable list of all pokemons.
+     */
+    @Override
+    public List&lt;Pokemon&gt; getPokemons() {
+<span class="nc" id="L91">        return Collections.unmodifiableList(pokemonList);</span>
+    }
+
+    /**
+     * Returns an unmodifiable list of all pokemons this pokedex contains.
+     * The list view will be sorted using the given &lt;tt&gt;order&lt;/tt&gt;.
+     *
+     * @param order Comparator instance used for sorting the created view.
+     * @return Sorted unmodifiable list of all pokemons.
+     */
+    @Override
+    public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
+<span class="nc" id="L103">        List&lt;Pokemon&gt; sortedPokemonList = new ArrayList&lt;&gt;(pokemonList);</span>
+<span class="nc" id="L104">        sortedPokemonList.sort(order);</span>
+<span class="nc" id="L105">        return Collections.unmodifiableList(sortedPokemonList);</span>
+    }
+
+    /**
+     * Creates a pokemon instance computing it IVs.
+     *
+     * @param index Pokemon index.
+     * @param cp    Pokemon CP.
+     * @param hp    Pokemon HP.
+     * @param dust  Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return Created pokemon instance.
+     */
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+<span class="nc" id="L120">        return new PokemonFactory().createPokemon(index,cp,hp,dust,candy);</span>
+    }
+
+    /**
+     * Retrieves and returns the metadata for the pokemon
+     * denoted by the given &lt;tt&gt;index&lt;/tt&gt;.
+     *
+     * @param index Index of the pokemon to retrieve metadata for.
+     * @return Metadata of the pokemon.
+     * @throws PokedexException If the given &lt;tt&gt;index&lt;/tt&gt; is not valid.
+     */
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+<span class="nc" id="L133">        return new PokemonMetadataProvider().getPokemonMetadata(index);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

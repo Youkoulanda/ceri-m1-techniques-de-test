@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.2">
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokedex.java">
+<error line="1" severity="error" message="Le fichier package-info.java est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+<error line="9" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="13" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="13" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="20" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="24" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="29" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="32" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="38" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="41" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="49" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="54" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokedexFactory.java">
+<error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="10" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="11" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="13" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="14" severity="error" message="La ligne excède 80 caractères (trouvé 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="18" severity="error" message="La ligne excède 80 caractères (trouvé 106)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokemonFactory.java">
+<error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="10" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="21" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokemonMetadataProvider.java">
+<error line="6" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="11" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="20" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\IPokemonTrainerFactory.java">
+<error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="10" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="15" severity="error" message="La ligne excède 80 caractères (trouvé 89)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="18" severity="error" message="La ligne excède 80 caractères (trouvé 93)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Pokedex.java">
+<error line="8" column="41" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="10" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="12" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="16" column="17" severity="error" message="&apos;126&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="17" column="17" severity="error" message="&apos;126&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="18" column="17" severity="error" message="&apos;90&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="19" column="17" severity="error" message="&apos;613&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="20" column="17" severity="error" message="&apos;64&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="21" column="17" severity="error" message="&apos;4000&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="22" column="17" severity="error" message="&apos;4&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="23" column="17" severity="error" message="&apos;56.0&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="27" column="17" severity="error" message="&apos;133&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="29" column="17" severity="error" message="&apos;186&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="30" column="17" severity="error" message="&apos;186&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="31" column="17" severity="error" message="&apos;260&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="32" column="17" severity="error" message="&apos;2729&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="33" column="17" severity="error" message="&apos;202&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="34" column="17" severity="error" message="&apos;5000&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="35" column="17" severity="error" message="&apos;4&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="36" column="17" severity="error" message="&apos;100.0&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="60" column="27" severity="error" message="Le paramètre pokemon devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="62" column="22" severity="error" message="Il manque une espace après &apos;+&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="62" column="22" severity="error" message="Il manque une espace avant &apos;+&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="73" column="31" severity="error" message="Le paramètre id devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="102" column="38" severity="error" message="Le paramètre order devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="119" severity="error" message="La ligne excède 80 caractères (trouvé 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="119" column="34" severity="error" message="Le paramètre index devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="119" column="45" severity="error" message="Le paramètre cp devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="119" column="53" severity="error" message="Le paramètre hp devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="119" column="61" severity="error" message="Le paramètre dust devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="119" column="71" severity="error" message="Le paramètre candy devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="120" column="56" severity="error" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="120" column="59" severity="error" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="120" column="62" severity="error" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="120" column="67" severity="error" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="132" severity="error" message="La ligne excède 80 caractères (trouvé 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="132" column="47" severity="error" message="Le paramètre index devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokedexFactory.java">
+<error line="3" column="56" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="5" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="5" column="27" severity="error" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="6" severity="error" message="La ligne excède 80 caractères (trouvé 89)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="18" severity="error" message="La ligne excède 80 caractères (trouvé 110)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="18" column="35" severity="error" message="Le paramètre metadataProvider devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="18" column="78" severity="error" message="Le paramètre pokemonFactory devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Pokemon.java">
+<error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="10" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="24" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="39" column="16" severity="error" message="La méthode ou le constructeur a plus de 7 paramètres (trouvé 10)." source="com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck"/>
+<error line="45" column="35" severity="error" message="&apos;cp&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="46" column="35" severity="error" message="&apos;hp&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="47" column="35" severity="error" message="&apos;dust&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="48" column="35" severity="error" message="&apos;candy&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="49" column="38" severity="error" message="&apos;iv&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="59" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="62" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="64" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="69" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="74" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="77" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="79" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="82" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonComparators.java">
+<error line="7" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="12" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="17" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="20" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="21" column="9" severity="error" message="Il y a une espace de trop avant &apos;;&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+<error line="22" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="28" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="31" column="9" severity="error" message="Mot-clef &apos;private&apos; redondant." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+<error line="31" column="62" severity="error" message="&apos;delegate&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="38" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonFactory.java">
+<error line="3" column="55" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="5" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="7" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="7" column="28" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="21" severity="error" message="La ligne excède 80 caractères (trouvé 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="21" column="34" severity="error" message="Le paramètre index devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="21" column="45" severity="error" message="Le paramètre cp devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="21" column="53" severity="error" message="Le paramètre hp devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="21" column="61" severity="error" message="Le paramètre dust devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="21" column="71" severity="error" message="Le paramètre candy devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="24" column="18" severity="error" message="Il manque une espace après &apos;=&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="24" column="18" severity="error" message="Il manque une espace avant &apos;=&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="27" severity="error" message="La ligne excède 80 caractères (trouvé 81)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="28" column="13" severity="error" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="29" column="30" severity="error" message="Évitez d&apos;affecter une valeur à une variable au sein d&apos;une expression." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+<error line="29" column="32" severity="error" message="&apos;56.0&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="30" column="22" severity="error" message="&apos;133&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="30" column="32" severity="error" message="Évitez d&apos;affecter une valeur à une variable au sein d&apos;une expression." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+<error line="30" column="34" severity="error" message="&apos;100.0&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonMetadata.java">
+<error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="10" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="34" severity="error" message="La ligne excède 80 caractères (trouvé 124)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="34" column="42" severity="error" message="&apos;index&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="34" column="62" severity="error" message="&apos;name&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="34" column="78" severity="error" message="&apos;attack&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="34" column="96" severity="error" message="&apos;defense&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="34" column="115" severity="error" message="&apos;stamina&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="41" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="43" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="46" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="48" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="53" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="58" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="63" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonMetadataProvider.java">
+<error line="6" column="73" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="8" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="8" column="40" severity="error" message="La variable &apos;pokemonMetadataList&apos; devrait être privée et avoir des accesseurs." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="12" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="12" column="36" severity="error" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="17" column="17" severity="error" message="&apos;126&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="18" column="17" severity="error" message="&apos;126&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="19" column="17" severity="error" message="&apos;90&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="22" column="17" severity="error" message="&apos;133&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="24" column="17" severity="error" message="&apos;186&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="25" column="17" severity="error" message="&apos;168&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="26" column="17" severity="error" message="&apos;260&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="41" severity="error" message="La ligne excède 80 caractères (trouvé 82)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="41" column="47" severity="error" message="Le paramètre index devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="45" severity="error" message="La ligne excède 80 caractères (trouvé 87)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="45" column="9" severity="error" message="Il manque une espace après &apos;if&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="45" column="9" severity="error" message="L&apos;instruction &apos;if&apos; devrait utiliser des accolades (&apos;{&apos; et &apos;}&apos;)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="45" column="33" severity="error" message="&apos;150&apos; devrait être défini comme une constante." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="47" column="68" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="48" column="13" severity="error" message="Il manque une espace après &apos;if&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="48" column="13" severity="error" message="L&apos;instruction &apos;if&apos; devrait utiliser des accolades (&apos;{&apos; et &apos;}&apos;)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="48" column="61" severity="error" message="Il manque une espace après &apos;=&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="48" column="78" severity="error" message="Il y a une espace de trop avant &apos;;&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonTrainer.java">
+<error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="10" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="15" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="18" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="21" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="26" severity="error" message="La ligne excède 80 caractères (trouvé 91)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="26" column="44" severity="error" message="&apos;name&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="26" column="61" severity="error" message="&apos;team&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="26" column="82" severity="error" message="&apos;pokedex&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="31" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="33" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="38" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="41" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="43" severity="error" message="La balise @return doit être présente et avoir une description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="46" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\PokemonTrainerFactory.java">
+<error line="3" column="69" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="9" severity="error" message="La ligne excède 80 caractères (trouvé 85)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="13" severity="error" message="La ligne excède 80 caractères (trouvé 97)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="13" column="41" severity="error" message="Le paramètre name devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="13" column="54" severity="error" message="Le paramètre team devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="13" column="65" severity="error" message="Le paramètre pokedexFactory devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\fr\univavignon\pokedex\api\Team.java">
+<error line="9" column="1" severity="error" message="Le fichier contient des caractères de tabulation (ce n&apos;est que la première occurence)." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="9" column="9" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="11" column="9" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="12" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="13" column="9" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+</file>
+<file name="C:\Users\hp\Desktop\M1\uce_techniques_test\ceri-m1-techniques-de-test\src\main\java\TP1\Main.java">
+<error line="1" severity="error" message="Le fichier package-info.java est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+<error line="1" column="9" severity="error" message="Le nom &apos;TP1&apos; n&apos;est pas conforme à l&apos;expression &apos;^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="3" column="1" severity="error" message="Les classes utilitaires ne doivent pas avoir de constructeur par défaut ou public." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
+<error line="4" column="5" severity="error" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="4" column="29" severity="error" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="4" column="30" severity="error" message="Le paramètre args devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="4" column="44" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="8" column="26" severity="error" message="Le nom &apos;hello_de&apos; n&apos;est pas conforme à l&apos;expression &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
+<error line="8" column="36" severity="error" message="&apos;{&apos; à la colonne 36 devrait avoir un saut de ligne après." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="8" column="36" severity="error" message="Il manque une espace avant &apos;{&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="8" column="59" severity="error" message="Il manque une espace après &apos;;&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="8" column="60" severity="error" message="Il manque une espace avant &apos;}&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+</checkstyle>
