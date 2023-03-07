@@ -14,7 +14,7 @@ jobs:
     docker:
       - image: cimg/openjdk:8.0.362
     # Add steps to the job
-    	steps:
+    steps:
       - checkout
       - run: java --version
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
