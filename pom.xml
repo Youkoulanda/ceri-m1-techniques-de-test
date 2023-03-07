@@ -13,8 +13,8 @@
     <url>https://github.com/Youkoulanda/ceri-m1-techniques-de-test</url>
     
     <properties>
-     <maven.compiler.source>19.0.2</maven.compiler.source>
-     <maven.compiler.target>19.0.2</maven.compiler.target>
+     <maven.compiler.source>19</maven.compiler.source>
+     <maven.compiler.target>19</maven.compiler.target>
 	</properties>
 
 
