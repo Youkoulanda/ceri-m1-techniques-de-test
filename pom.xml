@@ -11,6 +11,12 @@
     <name>RocketPokemon</name>
     <description>Outil d’analyse statistique pour le jeu Pokémon Go</description>
     <url>https://github.com/Youkoulanda/ceri-m1-techniques-de-test</url>
+    
+    <properties>
+     <maven.compiler.source>19.0.2</maven.compiler.source>
+     <maven.compiler.target>19.0.2</maven.compiler.target>
+	</properties>
+
 
      <dependencies>
         <dependency>
@@ -31,6 +37,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
 
     <build>
     <plugins>
