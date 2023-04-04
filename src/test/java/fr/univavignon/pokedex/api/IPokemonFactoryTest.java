@@ -11,18 +11,24 @@ import org.mockito.Mockito;
 public class IPokemonFactoryTest {
 	
 	private IPokemonFactory pokemonFactory;
+	private IPokemonFactory pokemonFactoryMock;
 	private Pokemon pokemon;
 	private int index;
 	
 	@Before
 	public void setup() {
-		
+		pokemonFactoryMock = mock(IPokemonFactory.class);
 	}
 	
 	@Test
-	public void checkCreatePokemon(int index) {
+	public void checkCreatePokemon() {
 		
-		pokemon = pokemonFactory.createPokemon(index, 10, 20, 2, 3);
+		pokemon = new Pokemon(index, "Pikachu", 10, 20, 30, 7, 8, 9, 10, 11);
+		
+		Mockito
+		.when(pokemonFactoryMock.createPokemon(index, 10, 20, 2, 3))
+		.thenReturn(pokemon);
+	
 		
 		assertEquals(pokemon.getCp(), 10);
 		assertEquals(pokemon.getHp(), 20);
