@@ -4,6 +4,7 @@ version: 2.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+
 orbs:
   browser-tools: circleci/browser-tools@1.2.3
   codecov: codecov/codecov@3.2.2
@@ -28,6 +29,7 @@ jobs:
       - store_artifacts:
           path:  target/site
       - codecov/upload
+
       # Then run your tests!s image is designed to supercede the l
 
 # Invoke jobs via workflows
