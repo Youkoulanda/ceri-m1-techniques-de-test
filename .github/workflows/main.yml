@@ -22,7 +22,7 @@ jobs:
       - name: coverage
         run: mvn -B clean package -DskipTests
       - name: Run tests and collect coverage
-        run: mvn -B test
+        run: mvn -B test verify
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
