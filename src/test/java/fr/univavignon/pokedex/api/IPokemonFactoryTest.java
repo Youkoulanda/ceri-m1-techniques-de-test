@@ -23,18 +23,18 @@ public class IPokemonFactoryTest {
 	@Test
 	public void checkCreatePokemon() {
 		
-		pokemon = new Pokemon(index, "Pikachu", 5, 20, 30, 7, 8, 9, 10, 11);
+		pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
 		
 		Mockito
 		.when(pokemonFactoryMock.createPokemon(index, 10, 20, 2, 3))
 		.thenReturn(pokemon);
 	
 		
-		assertEquals(pokemon.getCp(), 7);
-		assertEquals(pokemon.getHp(), 8);
-		assertEquals(pokemon.getDust(), 9);
-		assertEquals(pokemon.getCandy(), 10);
-		assertEquals(pokemon.getIv(), 11, 0.001);
+		assertEquals(pokemon.getCp(), 613);
+		assertEquals(pokemon.getHp(), 64);
+		assertEquals(pokemon.getDust(), 4000);
+		assertEquals(pokemon.getCandy(), 4);
+		assertEquals(pokemon.getIv(), 56, 0.001);
 		
 	}
 }

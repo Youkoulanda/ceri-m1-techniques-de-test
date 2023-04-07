@@ -13,9 +13,7 @@ import org.junit.Before;
 //@Category(IPokemonMetaDataProvider.class)
 public class IPokemonMetaDataProviderTest {
 
-	private PokemonMetadata pokemonMetaDada;
-	private Pokemon pokemon;
-	int index = 3;
+	private IPokemonMetadataProvider pokemonMetaDataProvider;
 	int indexTooBig = 151;
 	int indexTooSmall = -1;
 	String name = "Carapuce";
@@ -25,58 +23,57 @@ public class IPokemonMetaDataProviderTest {
 	
 	//Test that PokemonMetadata throws an error if index is out of range
 	
-	@Test
-	public void checkIndexRange() {
-		
-		/** TODO: Change IllegalArgumentException by PokedexException once exception is implemented **/
-		
-		assertThrows(IllegalArgumentException.class, () -> {
-            if(indexTooBig < 0 || indexTooBig > 150) {
-                throw new IllegalArgumentException("Index out of range");
-            }
-        });
-		
-		assertThrows(IllegalArgumentException.class, () -> {
-            if(indexTooSmall < 0 || indexTooSmall > 150) {
-                throw new IllegalArgumentException("Index out of range");
-            }
-        });
-	
-	}
-	
-	//Test that getPokemonMetadata returns an object of type PokemonMetadata
-	
-	
 	@Before
 	public void setup() {
-		
-		pokemonMetaDada = new PokemonMetadata(index, name, attack, defense, stamina);
-		pokemon = new Pokemon(index, name, attack, defense, stamina, 7, 8, 9, 10, 11);
-		
-		
+		pokemonMetaDataProvider = mock(IPokemonMetadataProvider.class);
 	}
 	
 	@Test
-	public void checkReturnsPokemonMetaData() {
+	public void indexTooSmall() throws PokedexException{
 		
-		assertEquals(pokemon.getName(), name);
-		assertEquals(pokemonMetaDada.getAttack(), attack);
-		assertEquals(pokemon.getDefense(), defense);
-		assertEquals(pokemon.getStamina(), stamina);
+		int indexTooSmall = -1;
 		
+		Mockito
+		.when(pokemonMetaDataProvider.getPokemonMetadata(indexTooSmall))
+		.thenThrow(new PokedexException("Index out of range"));
+			
+		assertThrows(PokedexException.class, () -> {
+			pokemonMetaDataProvider.getPokemonMetadata(indexTooSmall);
+        });
+	
 	}
 	
-	//Test that when you create a Pokemon its attack, defense and stamina are added
-	//to the its Metadata 
+	public void indexTooBig() throws PokedexException{
+		
+		int indexTooBig = 151;
+		
+		Mockito
+		.when(pokemonMetaDataProvider.getPokemonMetadata(indexTooBig))
+		.thenThrow(new PokedexException("Index out of range"));
+		
+		assertThrows(PokedexException.class, () -> {
+			pokemonMetaDataProvider.getPokemonMetadata(indexTooBig);
+        });
 	
-//	@Before
-//	public void setup() {
-//		pokemon = new Pokemon(index, name, attack, defense, stamina, 7, 8, 9, 10, 11);
-//		
-//		PokemonMetadata mockito = mock(PokemonMetadata.class);
-//		
-//		mockito.when(PokemonMetadata.getPokemonMetadata(index)
-//		.thenReturn(mockito));
+	}
+	
+	
+	@Test
+	public void checkGetPokemonMetaData() throws PokedexException {
+		
+		int index = 3;
+		PokemonMetadata pokemonMetaData = new PokemonMetadata(index, name, attack, defense, stamina);
+		
+		Mockito
+		.when(pokemonMetaDataProvider.getPokemonMetadata(index))
+		.thenReturn(pokemonMetaData);
+		
+		assertEquals(name ,pokemonMetaData.getName());
+		assertEquals(attack ,pokemonMetaData.getAttack());
+		assertEquals(defense ,pokemonMetaData.getDefense());
+		assertEquals(stamina ,pokemonMetaData.getStamina());
+		
+	}
 		
 	
 }
