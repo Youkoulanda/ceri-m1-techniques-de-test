@@ -4,6 +4,8 @@ version: 2.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+orbs:
+  browser-tools: circleci/browser-tools@1.2.3
 jobs:
 # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
@@ -16,11 +18,15 @@ jobs:
     # Add steps to the job
     steps:
       - checkout
+      - browser-tools/install-browser-tools
       - run: java --version
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
       - run: mvn clean test
+      - run: mvn verify
+      - store_artifacts:
+          path:  target/site
       # Then run your tests!s image is designed to supercede the l
 
 # Invoke jobs via workflows
