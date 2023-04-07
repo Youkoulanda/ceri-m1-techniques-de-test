@@ -6,6 +6,7 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 orbs:
   browser-tools: circleci/browser-tools@1.2.3
+  codecov: codecov/codecov-action@v3.2.2
 jobs:
 # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
@@ -26,6 +27,7 @@ jobs:
       - run: mvn verify
       - store_artifacts:
           path:  target/site
+      - codecov/upload
       # Then run your tests!s image is designed to supercede the l
 
 # Invoke jobs via workflows
@@ -35,8 +37,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-      - name: Upload coverage reports to Codecov
-      - uses: codecov/codecov-action@v3
+
       
 #Branche master uniquement
 only:
