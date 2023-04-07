@@ -18,7 +18,6 @@ jobs:
     # Add steps to the job
     steps:
       - checkout
-      - browser-tools/install-browser-tools
       - run: java --version
       - run:
           name: Build
