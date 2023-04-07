@@ -20,6 +20,7 @@ jobs:
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
+      - run: mvn clean test
       # Then run your tests!s image is designed to supercede the l
 
 # Invoke jobs via workflows
