@@ -1,5 +1,11 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+Nom: Renoux
+Prénom : Maxime
+
+[![codecov](https://codecov.io/gh/{maxime.renoux}/{ceri-m1-techniques-de-test}/branch/{master}/graph/badge.svg?token={3345c791-5f3d-4758-8017-7f485b6c2651})](https://codecov.io/gh/{maax}/{ceri-m1-techniques-de-test})
+
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
