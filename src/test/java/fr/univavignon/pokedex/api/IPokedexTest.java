@@ -14,24 +14,18 @@ public class IPokedexTest {
 	
 	IPokedexFactory pokedexFactory;
 	IPokedex pokedex;
-	IPokemonMetadataProvider pokemonMetaDataProvider;
-	IPokemonFactory pokemonFactory;
+	PokemonMetadataProvider pokemonMetaDataProvider;
+	PokemonFactory pokemonFactory;
 	
 	@Before
 	public void setup() {
 		pokedexFactory = mock(IPokedexFactory.class);
-		pokedex = mock(IPokedex.class);
-		pokemonMetaDataProvider = mock(IPokemonMetadataProvider.class);
-		pokemonFactory = mock(IPokemonFactory.class);
+		pokedex = new Pokedex(pokemonMetaDataProvider, pokemonFactory);
 	}
 
 	@Test
 	public void checkAddPokemon() {
 		Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
-		
-		Mockito
-		.when(pokedex.addPokemon(pokemon))
-		.thenReturn(pokemon.getIndex());
 		
 		assertEquals(0, pokedex.addPokemon(pokemon));
 	}
@@ -39,10 +33,6 @@ public class IPokedexTest {
 	@Test
 	public void checkGetPokemon() throws PokedexException {
 		Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
-		
-		Mockito
-		.when(pokedex.getPokemon(0))
-		.thenReturn(pokemon);
 		
 		assertEquals(pokemon, pokedex.getPokemon(0));
 	}
@@ -56,10 +46,6 @@ public class IPokedexTest {
 				
 		pokemons.add(pokemon1);
 		pokemons.add(pokemon2);
-		
-		Mockito
-		.when(pokedex.getPokemons())
-		.thenReturn(pokemons);
 		
 		assertEquals(40, pokedex.getPokemons().get(1).getCandy());
 	}
