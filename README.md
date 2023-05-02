@@ -3,7 +3,7 @@
 Nom: Renoux
 Prénom : Maxime
 
-[![codecov](https://codecov.io/gh/{maxime.renoux}/{ceri-m1-techniques-de-test}/branch/{maxime-renoux}/graph/badge.svg?token={3345c791-5f3d-4758-8017-7f485b6c2651})](https://codecov.io/gh/{maax}/{ceri-m1-techniques-de-test})
+[![codecov](https://codecov.io/gh/maxime.renoux/ceri-m1-techniques-de-test/branch/maxime-renoux/graph/badge.svg?token=3345c791-5f3d-4758-8017-7f485b6c2651)](https://codecov.io/gh/maax/ceri-m1-techniques-de-test)
 
 
 ## Introduction
