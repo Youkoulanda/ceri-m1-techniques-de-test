@@ -1,10 +1,16 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+# Student Info
+
 Nom: Renoux
 Prénom : Maxime
 
+# CodeCov Badge
 [![codecov](https://codecov.io/gh/MaximeRenoux/ceri-m1-techniques-de-test/branch/maxime-renoux/graph/badge.svg?token=87BFFZGF7Z)](https://codecov.io/gh/MaximeRenoux/ceri-m1-techniques-de-test)
 
+# CircleCi Badge
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/MaximeRenoux/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/MaximeRenoux/ceri-m1-techniques-de-test/tree/master)
 
 ## Introduction
 
