@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Before;
@@ -14,12 +15,19 @@ public class IPokedexTest {
 	
 	IPokedexFactory pokedexFactory;
 	IPokedex pokedex;
-	PokemonMetadataProvider pokemonMetaDataProvider;
-	PokemonFactory pokemonFactory;
+	String name = "Bulbizarre";
+	int attack = 126;
+	int defense = 126;
+	int stamina = 90;
 	
 	@Before
 	public void setup() {
+		HashMap<Integer, PokemonMetadata> pokemonMetadata = new HashMap<Integer, PokemonMetadata>();
+		pokemonMetadata.put(0, new PokemonMetadata(0, name, attack, defense, stamina));
+		pokemonMetadata.put(0, new PokemonMetadata(133, "Aquali", 186, 168, 260));
 		pokedexFactory = mock(IPokedexFactory.class);
+		IPokemonMetadataProvider pokemonMetaDataProvider = new PokemonMetadataProvider(pokemonMetadata);
+		IPokemonFactory pokemonFactory = new PokemonFactory(pokemonMetaDataProvider);
 		pokedex = new Pokedex(pokemonMetaDataProvider, pokemonFactory);
 	}
 
@@ -32,9 +40,11 @@ public class IPokedexTest {
 	
 	@Test
 	public void checkGetPokemon() throws PokedexException {
-		Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
+		Pokemon pokemon = new Pokemon(2, "Aquali", 186, 168, 260, 2729, 202, 5000, 40, 100);
 		
-		assertEquals(pokemon, pokedex.getPokemon(0));
+		pokedex.addPokemon(pokemon);
+		
+		assertEquals(pokemon, pokedex.getPokemon(2));
 	}
 	
 	@Test
@@ -44,10 +54,10 @@ public class IPokedexTest {
 		
 		List<Pokemon> pokemons = new ArrayList();
 				
-		pokemons.add(pokemon1);
-		pokemons.add(pokemon2);
+		pokedex.addPokemon(pokemon1);
+		pokedex.addPokemon(pokemon2);
 		
-		assertEquals(40, pokedex.getPokemons().get(1).getCandy());
+		assertEquals(pokemon1, pokedex.getPokemons().get(0));
 	}
 	
 }

@@ -9,10 +9,10 @@ import java.util.List;
 public class Pokedex implements IPokedex{
 	
 	List<Pokemon> pokemonList = new ArrayList<Pokemon>();
-	PokemonMetadataProvider pokemonMetadataProvider;
-	PokemonFactory pokemonFactory;
+	IPokemonMetadataProvider pokemonMetadataProvider;
+	IPokemonFactory pokemonFactory;
 	
-	public Pokedex(PokemonMetadataProvider pokemonMetadataProvider, PokemonFactory pokemonFactory){
+	public Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory){
 		this.pokemonMetadataProvider = pokemonMetadataProvider;
 		this.pokemonFactory = pokemonFactory;
 	}
@@ -42,7 +42,12 @@ public class Pokedex implements IPokedex{
 
 	@Override
 	public Pokemon getPokemon(int id) throws PokedexException {
-		return pokemonList.get(id);
+		for (Pokemon pokemon : pokemonList) {
+	        if (pokemon.getIndex() == id) {
+	            return pokemon;
+	        }
+	    }
+	    return null;
 	}
 
 	@Override
