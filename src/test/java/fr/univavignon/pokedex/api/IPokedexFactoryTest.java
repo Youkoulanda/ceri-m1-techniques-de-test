@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Before;
@@ -16,27 +17,28 @@ public class IPokedexFactoryTest {
 	IPokedex pokedex;
 	IPokemonMetadataProvider pokemonMetaDataProvider;
 	IPokemonFactory pokemonFactory;
-
+	String name = "Bulbizarre";
+	int attack = 126;
+	int defense = 126;
+	int stamina = 90;
 	
 	@Before
 	public void setup() {
-		pokedexFactory = mock(IPokedexFactory.class);
-		pokedex = mock(IPokedex.class);
-		pokemonMetaDataProvider = mock(IPokemonMetadataProvider.class);
-		pokemonFactory = mock(IPokemonFactory.class);
+		HashMap<Integer, PokemonMetadata> pokemonMetadata = new HashMap<Integer, PokemonMetadata>();
+		pokemonMetadata.put(0, new PokemonMetadata(0, name, attack, defense, stamina));
+		pokemonMetadata.put(0, new PokemonMetadata(133, "Aquali", 186, 168, 260));
+		pokemonMetaDataProvider = new PokemonMetadataProvider(pokemonMetadata);
+		pokemonFactory = new PokemonFactory(pokemonMetaDataProvider);
+		pokedexFactory = new PokedexFactory(pokemonMetaDataProvider, pokemonFactory);
 	}
 	
 
 	@Test
 	public void checkCreatePokedex() {
 		
-		Mockito
-		.when(pokedexFactory.createPokedex(pokemonMetaDataProvider, pokemonFactory))
-		.thenReturn(pokedex);
+		IPokedex pokedex = pokedexFactory.createPokedex(pokemonMetaDataProvider, pokemonFactory);
 		
-		IPokedex pokedex2 = pokedexFactory.createPokedex(pokemonMetaDataProvider, pokemonFactory);
-		
-		assertEquals(0, pokedex2.size());
+		assertEquals(Pokedex.class, pokedex.getClass());
 			
 	}
 	
