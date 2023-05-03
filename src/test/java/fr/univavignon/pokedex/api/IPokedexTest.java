@@ -25,9 +25,9 @@ public class IPokedexTest {
 		HashMap<Integer, PokemonMetadata> pokemonMetadata = new HashMap<Integer, PokemonMetadata>();
 		pokemonMetadata.put(0, new PokemonMetadata(0, name, attack, defense, stamina));
 		pokemonMetadata.put(0, new PokemonMetadata(133, "Aquali", 186, 168, 260));
-		pokedexFactory = mock(IPokedexFactory.class);
 		IPokemonMetadataProvider pokemonMetaDataProvider = new PokemonMetadataProvider(pokemonMetadata);
 		IPokemonFactory pokemonFactory = new PokemonFactory(pokemonMetaDataProvider);
+		pokedexFactory = new PokedexFactory(pokemonMetaDataProvider, pokemonFactory);
 		pokedex = new Pokedex(pokemonMetaDataProvider, pokemonFactory);
 	}
 
