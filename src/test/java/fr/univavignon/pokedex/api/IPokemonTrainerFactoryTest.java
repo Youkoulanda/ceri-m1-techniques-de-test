@@ -23,7 +23,7 @@ public class IPokemonTrainerFactoryTest {
 	public void setup() {
 		HashMap<Integer, PokemonMetadata> pokemonMetadata = new HashMap<Integer, PokemonMetadata>();
 		pokemonMetadata.put(0, new PokemonMetadata(0, name, attack, defense, stamina));
-		pokemonMetadata.put(0, new PokemonMetadata(133, "Aquali", 186, 168, 260));
+		pokemonMetadata.put(133, new PokemonMetadata(133, "Aquali", 186, 168, 260));
 		IPokemonMetadataProvider pokemonMetaDataProvider = new PokemonMetadataProvider(pokemonMetadata);
 		IPokemonFactory pokemonFactory = new PokemonFactory(pokemonMetaDataProvider);
 		pokedexFactory = new PokedexFactory(pokemonMetaDataProvider, pokemonFactory);
@@ -37,6 +37,7 @@ public class IPokemonTrainerFactoryTest {
 		
 		PokemonTrainer pokemonTrainer = new PokemonTrainer("Sasha", Team.MYSTIC , pokedex);
 		PokemonTrainer pokemonTrainer2 = pokedexTrainerFactory.createTrainer("Sasha", Team.MYSTIC , pokedexFactory);
+		
 		
 		assertEquals(pokemonTrainer2.getTeam(), pokemonTrainer.getTeam());
 		assertEquals(pokemonTrainer2.getName(), pokemonTrainer.getName());

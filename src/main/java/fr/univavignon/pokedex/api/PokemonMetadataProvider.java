@@ -7,7 +7,7 @@ public class PokemonMetadataProvider  implements IPokemonMetadataProvider{
 	HashMap<Integer, PokemonMetadata> metaDataDic;
 
 	public PokemonMetadataProvider(HashMap<Integer, PokemonMetadata> metaDataDic) {
-		metaDataDic = new HashMap<Integer, PokemonMetadata>();
+		this.metaDataDic = metaDataDic;
 	}
 	
 	@Override
