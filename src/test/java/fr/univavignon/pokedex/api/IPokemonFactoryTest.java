@@ -15,6 +15,7 @@ public class IPokemonFactoryTest {
 	private IPokemonFactory pokemonFactory;
 	private IPokemonFactory pokemonFactoryMock;
 	private Pokemon pokemon;
+	private Pokemon pokemon2;
 	private int index = 133;
 	String name = "Bulbizarre";
 	int attack = 126;
@@ -33,12 +34,21 @@ public class IPokemonFactoryTest {
 	@Test
 	public void checkCreatePokemon() {
 		
-		pokemon = pokemonFactory.createPokemon(133, 613, 64, 4000, 4);
+		pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+		pokemon2 = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
+	
+		assertEquals(Pokemon.class, pokemon.getClass());
+		assertEquals(Pokemon.class, pokemon2.getClass());
 		
-		assertEquals(pokemon.getName(), "Aquali");
-		assertEquals(pokemon.getAttack(), 186);
-		assertEquals(pokemon.getDefense(), 168);
-		assertEquals(pokemon.getStamina(), 260);
+		assertEquals(pokemon.getCp(), 613);
+		assertEquals(pokemon.getHp(), 64);
+		assertEquals(pokemon.getDust(), 4000);
+		assertEquals(pokemon.getCandy(), 4);
+		
+		assertEquals(pokemon2.getName(), "Aquali");
+		assertEquals(pokemon2.getAttack(), 186);
+		assertEquals(pokemon2.getDefense(), 168);
+		assertEquals(pokemon2.getStamina(), 260);
 		
 	}
 }
