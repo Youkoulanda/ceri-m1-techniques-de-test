@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class IPokedexTest {
 	@Test
 	public void checkGetPokemons(){
 		Pokemon pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
-		Pokemon pokemon2 = new Pokemon(2, "Aquali", 186, 168, 260, 2729, 202, 5000, 40, 100);
+		Pokemon pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 40, 100);
 		
 		List<Pokemon> pokemons = new ArrayList();
 				
@@ -58,6 +59,37 @@ public class IPokedexTest {
 		pokedex.addPokemon(pokemon2);
 		
 		assertEquals(pokemon1, pokedex.getPokemons().get(0));
+		//assertEquals(pokemon2, pokedex.getPokemons().get(133));
+	}
+	
+	class IndexComparator implements Comparator<Pokemon> {
+		List<Pokemon> pokemons;
+
+	    public IndexComparator(List<Pokemon> pokemons) {
+	        this.pokemons = pokemons;
+	    }
+	    @Override
+	    public int compare(Pokemon p1, Pokemon p2) {
+	        return Integer.compare(p1.getIndex(), p2.getIndex());
+	    }
+	}
+	
+
+	@Test
+	public void checkGetPokemonsOrdered() {
+		Pokemon pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 40, 100);
+		Pokemon pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
+		
+		List<Pokemon> pokemons = new ArrayList();
+		
+		pokedex.addPokemon(pokemon2);
+		pokedex.addPokemon(pokemon1);
+		
+		Comparator<Pokemon> order = new IndexComparator(pokemons);
+		
+//		assertEquals(pokemon1, pokedex.getPokemons(order).get(0));
+//		assertEquals(pokemon2, pokedex.getPokemons(order).get(1));
+
 	}
 	
 }
