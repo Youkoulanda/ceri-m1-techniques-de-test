@@ -21,6 +21,7 @@ jobs:
       - checkout
       - run: java --version
       - run: mvn site
+      - run: ls
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
