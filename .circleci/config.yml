@@ -49,8 +49,8 @@ jobs:
            name: Deploy docs to gh-pages branch
            command: gh-pages --dist docs/_build/html
        - add_ssh_keys:
-         fingerprints:
-           - "SHA256:oJDIa5IFz+mIcKJyku6Y+Q+kRUPrIpPgclr9Mpms+p4"
+           fingerprints:
+             - "SHA256:oJDIa5IFz+mIcKJyku6Y+Q+kRUPrIpPgclr9Mpms+p4"
          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
