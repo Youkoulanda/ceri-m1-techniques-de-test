@@ -20,9 +20,9 @@ jobs:
     steps:
       - checkout
       - run: java --version
-      - run: mvn site
-      - run: ls
-      - run: pwd
+      #- run: mvn site
+      #- run: ls
+      #- run: pwd
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
@@ -32,25 +32,25 @@ jobs:
           path:  target/site
       - codecov/upload
       # Then run your tests!s image is designed to supercede the l
-    docs-deploy:
-       docker:
-         - image: node:8.10.0
-       steps:
-         - checkout
-         - attach_workspace:
-             at: docs/_build
-         - run:
-             name: Install and configure dependencies
-             command: |
-               npm install -g --silent gh-pages@2.0.1
-               git config user.email "ci-build@klukas.net"
-               git config user.name "ci-build"
-         - run:
-             name: Deploy docs to gh-pages branch
-             command: gh-pages --dist docs/_build/html
-         - add_ssh_keys:
-           fingerprints:
-             - "SHA256:oJDIa5IFz+mIcKJyku6Y+Q+kRUPrIpPgclr9Mpms+p4"
+  docs-deploy:
+     docker:
+       - image: node:8.10.0
+     steps:
+       - checkout
+       - attach_workspace:
+           at: docs/_build
+       - run:
+           name: Install and configure dependencies
+           command: |
+             npm install -g --silent gh-pages@2.0.1
+             git config user.email "renoux.maxime@ntymail.com"
+             git config user.name "MaximeRenoux"
+       - run:
+           name: Deploy docs to gh-pages branch
+           command: gh-pages --dist docs/_build/html
+       - add_ssh_keys:
+         fingerprints:
+           - "SHA256:oJDIa5IFz+mIcKJyku6Y+Q+kRUPrIpPgclr9Mpms+p4"
          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
