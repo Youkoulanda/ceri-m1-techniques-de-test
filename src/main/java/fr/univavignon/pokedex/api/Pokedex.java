@@ -13,6 +13,7 @@ public class Pokedex implements IPokedex{
 	IPokemonMetadataProvider pokemonMetadataProvider;
 	IPokemonFactory pokemonFactory;
 	Comparator<Pokemon> order;
+
 	
 	public Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory){
 		this.pokemonMetadataProvider = pokemonMetadataProvider;
@@ -39,6 +40,7 @@ public class Pokedex implements IPokedex{
 
 	@Override
 	public int addPokemon(Pokemon pokemon) {
+		
 		pokemonList.add(pokemon);
 		return pokemon.getIndex();
 	}

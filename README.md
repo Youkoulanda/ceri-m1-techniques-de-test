@@ -12,6 +12,10 @@ Prénom : Maxime
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/MaximeRenoux/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/MaximeRenoux/ceri-m1-techniques-de-test/tree/master)
 
+# Checkstyle Badge
+
+![Checkstyle](target/site/badges/checkstyle-result-warn.svg)
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  

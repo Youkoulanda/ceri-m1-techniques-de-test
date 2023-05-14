@@ -1,126 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>fr.univ-avignon.tt</groupId>
-    <artifactId>technique-de-test-tp-pokemon</artifactId>
-    <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <name>RocketPokemon</name>
-    <description>Outil d’analyse statistique pour le jeu Pokémon Go</description>
-    <url>https://github.com/Youkoulanda/ceri-m1-techniques-de-test</url>
-    
-    <properties>
-     <maven.compiler.source>11</maven.compiler.source>
-     <maven.compiler.target>11</maven.compiler.target>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.univ-avignon.tt</groupId>
+	<artifactId>technique-de-test-tp-pokemon</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>RocketPokemon</name>
+	<description>Outil d’analyse statistique pour le jeu Pokémon Go</description>
+	<url>https://github.com/Youkoulanda/ceri-m1-techniques-de-test</url>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
-
-     <dependencies>
-        <dependency>
-	        <groupId>org.apache.commons</groupId>
-	        <artifactId>commons-collections4</artifactId>
-	        <version>4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.10.19</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+	<dependencies>
 		<dependency>
-		    <groupId>org.jacoco</groupId>
-		    <artifactId>jacoco-maven-plugin</artifactId>
-		    <version>0.8.9</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
 		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-core</artifactId>
-    <version>5.2.0</version>
-    <scope>test</scope>
-</dependency>
-
-    </dependencies>
-    <build>
-<plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-site-plugin</artifactId>
-      <version>3.10.0</version>
-    </plugin>
-
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-project-info-reports-plugin</artifactId>
-      <version>3.2.1</version>
-    </plugin>
-      <plugin>
-       	<groupId>org.apache.maven.plugins</groupId>
-        	<artifactId>maven-surefire-plugin</artifactId>
-   			 <version>3.0.0</version>
-            	<executions>
-			    <execution>
-			      <id>test</id>
-			      <phase>fr.univavignon.pokedex.api</phase>
-			      <goals>
-			        <goal>test</goal>
-			      </goals>
-			    </execution>
-			  </executions>
-			  
-			 
-      </plugin>
-      
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version xmlns="http://maven.apache.org/POM/4.0.0">0.8.9</version>
-            <executions xmlns="http://maven.apache.org/POM/4.0.0">
-          <execution>
-            <id>default-prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>default-check</id>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <rule>
-                  <element>BUNDLE</element>
-                  <limits>
-                    <limit>
-                      <counter>COMPLEXITY</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>0.50</minimum>
-                    </limit>
-                  </limits>
-                </rule>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-          </plugin>
-    </plugins>
-    	<testSourceDirectory>src/test/java</testSourceDirectory>
-    </build>
-    
-    	
-
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.10.19</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+		<dependency>
+			<groupId>com.puppycrawl.tools</groupId>
+			<artifactId>checkstyle</artifactId>
+			<version>10.11.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.bordertech.common/build-tools -->
+		<dependency>
+			<groupId>com.github.bordertech.common</groupId>
+			<artifactId>build-tools</artifactId>
+			<version>1.0.20</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/xml-maven-plugin -->
+		<dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>xml-maven-plugin</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+	</dependencies>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.2.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xml-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<transformationSets>
+						<transformationSet>
+							<dir>target\</dir>
+							<stylesheet>checkstyle\checkstyle-author.xsl</stylesheet>
+							<includes>checkstyle-result.xml</includes>
+							<fileMappers>
+								<fileMapper
+									implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+									<pattern>\.xml$</pattern>
+									<replacement>.html</replacement>
+								</fileMapper>
+							</fileMappers>
+						</transformationSet>
+					</transformationSets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.bordertech.buildtools</groupId>
+				<artifactId>badger</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>post-site</phase>
+						<goals>
+							<goal>badges</goal>
+						</goals>
+						<configuration>
+							<outputDir>target/site/badges</outputDir>
+							<inputFiles>
+								<inputFile>target/checkstyle-result.xml</inputFile>
+							</inputFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.10.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.2.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>fr.univavignon.pokedex.api</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version xmlns="http://maven.apache.org/POM/4.0.0">0.8.9</version>
+				<executions xmlns="http://maven.apache.org/POM/4.0.0">
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>BUNDLE</element>
+									<limits>
+										<limit>
+											<counter>COMPLEXITY</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.50</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+	</build>
 </project>
