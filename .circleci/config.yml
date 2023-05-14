@@ -22,6 +22,7 @@ jobs:
       - run: java --version
       - run: mvn site
       - run: ls
+      - run: pwd
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
