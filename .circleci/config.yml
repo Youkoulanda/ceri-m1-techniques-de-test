@@ -60,9 +60,9 @@ workflows:
     jobs:
       - build-and-test
       - docs-deploy:
-        requires:
-          - test
-          - docs-build
+          requires:
+            - test
+            - docs-build
         
       
 #Branche master uniquement
