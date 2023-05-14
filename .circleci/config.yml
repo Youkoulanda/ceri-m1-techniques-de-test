@@ -29,7 +29,8 @@ jobs:
       - codecov/upload
 # Then run your tests!s image is designed to supercede the l
    docs-build:
-      runs-on: ubuntu-latest
+      docker:
+      -  image: ubuntu-latest
       steps:
       -  name: Checkout code
          uses: actions/checkout@v2
