@@ -43,7 +43,7 @@
     <property name="java.class.path" value="/usr/local/stow/Intellij_idea-2021.2.2/plugins/maven/lib/maven3/boot/plexus-classworlds.license:/usr/local/stow/Intellij_idea-2021.2.2/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="21"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2.2 test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2.2 verify"/>
     <property name="java.home" value="/home/nas-wks01/users/uapv2402803/.jdks/openjdk-21.0.2"/>
     <property name="user.language" value="fr"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
