@@ -1,40 +1,30 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:java:.
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 version: 2.1
+
 jobs:
-  test-java:
+  build-and-test:
     docker:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
       - run:
-          name: Calculate cache key
-          command: |-
-            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
-                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
-      - restore_cache:
-          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          name: Build
+          command: mvn -B -DskipTests clean package
       - run:
-          command: mvn verify
-      - store_test_results:
-          path: target/surefire-reports
-      - save_cache:
-          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          name: Test
+          command: mvn test
+      - persist_to_workspace:
+          root: target
           paths:
-            - ~/.m2/repository
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+            - jacoco.exec
+      # Upload to Codecov
+      - codecov/upload:
+          file: target/jacoco.exec
+          flags: unittests
+
 workflows:
-  build-and-test:
+  sample:
     jobs:
-      - test-java
-    # - deploy:
-    #     requires:
-    #       - test-java
+      - build-and-test

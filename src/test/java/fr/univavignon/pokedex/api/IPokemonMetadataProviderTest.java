@@ -41,4 +41,28 @@ public class IPokemonMetadataProviderTest {
         // Call the method with an invalid index, expecting an exception
         pokemonMetadataProvider.getPokemonMetadata(-1);
     }
+
+    @Test
+    public void testGetStamina() {
+        // Test the getStamina() method
+        assertEquals(90, expectedMetadata.getStamina());
+    }
+
+    @Test
+    public void testGetDefense() {
+        // Test the getDefense() method
+        assertEquals(126, expectedMetadata.getDefense());
+    }
+
+    @Test
+    public void testGetAttack() {
+        // Test the getAttack() method
+        assertEquals(126, expectedMetadata.getAttack());
+    }
+
+    @Test
+    public void testGetName() {
+        // Test the getName() method
+        assertEquals("bulbizarre", expectedMetadata.getName());
+    }
 }

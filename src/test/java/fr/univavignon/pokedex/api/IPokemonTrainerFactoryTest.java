@@ -6,6 +6,7 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 public class IPokemonTrainerFactoryTest {
 
@@ -42,5 +43,10 @@ public class IPokemonTrainerFactoryTest {
 
         // Verify that the created trainer is not null
         assertNotNull(createdTrainer);
+
+        // Verify that the trainer's pokedex, team, and name match the expected values
+        assertEquals(pokedex, createdTrainer.getPokedex());
+        assertEquals(team, createdTrainer.getTeam());
+        assertEquals(name, createdTrainer.getName());
     }
 }

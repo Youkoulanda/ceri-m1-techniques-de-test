@@ -19,6 +19,7 @@ public class IPokemonFactoryTest {
     private int hp;
     private int dust;
     private int candy;
+    private int iv;
 
     @Before
     public void setUp() {
@@ -35,9 +36,10 @@ public class IPokemonFactoryTest {
         hp = 64;
         dust = 4000;
         candy = 4;
+        iv = 56;
 
         // Define behavior of the mock method
-        Pokemon mockedPokemon = new Pokemon(index,name,attack,defense,stamina, cp, hp, dust, candy,56); // Define the expected return value
+        Pokemon mockedPokemon = new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv); // Define the expected return value
         when(pokemonFactory.createPokemon(index, cp, hp, dust, candy)).thenReturn(mockedPokemon); // Define behavior
     }
 
@@ -56,4 +58,6 @@ public class IPokemonFactoryTest {
         assertEquals(dust, pokemon.getDust());
         assertEquals(candy, pokemon.getCandy());
     }
+
+
 }
