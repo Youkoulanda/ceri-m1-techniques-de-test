@@ -1,7 +1,7 @@
+version: 2.1
+
 orbs:
   codecov: codecov/codecov@4.0.1
-
-version: 2.1
 
 jobs:
   build-and-test:
@@ -19,12 +19,11 @@ jobs:
           root: target
           paths:
             - jacoco.exec
-      # Upload to Codecov
       - codecov/upload:
           file: target/jacoco.exec
           flags: unittests
 
 workflows:
-  sample:
+  upload-to-codecov:
     jobs:
       - build-and-test
