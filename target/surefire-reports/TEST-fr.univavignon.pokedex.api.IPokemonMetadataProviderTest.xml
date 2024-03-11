@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" time="0.821" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" time="0.802" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.2.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -59,8 +59,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetStamina" time="0.79"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetPokemonMetadata_InvalidIndex" time="0.026"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetStamina" time="0.774"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetPokemonMetadata_InvalidIndex" time="0.023"/>
   <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetName" time="0"/>
   <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetAttack" time="0"/>
   <testcase classname="fr.univavignon.pokedex.api.IPokemonMetadataProviderTest" name="testGetDefense" time="0"/>

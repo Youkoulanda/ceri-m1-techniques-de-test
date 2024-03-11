@@ -11,14 +11,10 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: mvn -B -DskipTests clean package
+          command: mvn -B -DskipTests clean
       - run:
           name: Test
-          command: mvn test
-      - persist_to_workspace:
-          root: target
-          paths:
-            - jacoco.exec
+          command: mvn verify
       - codecov/upload:
           file: target/jacoco.exec
           flags: unittests
