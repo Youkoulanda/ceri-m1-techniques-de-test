@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class IPokedexTest {
 
@@ -51,7 +52,7 @@ public class IPokedexTest {
     @Test
     public void testAddPokemon() throws PokedexException {
         // Create a sample Pokemon
-        Pokemon pokemon = new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy,56);
+        Pokemon pokemon = new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, 56);
 
         // Call the method under test
         int actualIndex = pokedex.addPokemon(pokemon);
@@ -60,5 +61,29 @@ public class IPokedexTest {
         assert(actualIndex >= 0);
     }
 
-    // You can write similar tests for other methods of the IPokedex interface
+    @Test
+    public void testGetPokemon() throws PokedexException {
+        // Add a Pokemon to the Pokedex
+        Pokemon addedPokemon = createTestPokemon();
+        pokedex.addPokemon(addedPokemon);
+
+        // Retrieve the Pokemon by index
+        Pokemon retrievedPokemon = pokedex.getPokemon(0);
+
+        // Check if the retrieved Pokemon matches the added one
+        assertNotNull(retrievedPokemon);
+        assertEquals(addedPokemon.getIndex(), retrievedPokemon.getIndex());
+        assertEquals(addedPokemon.getName(), retrievedPokemon.getName());
+        assertEquals(addedPokemon.getCp(), retrievedPokemon.getCp());
+        assertEquals(addedPokemon.getHp(), retrievedPokemon.getHp());
+        assertEquals(addedPokemon.getDust(), retrievedPokemon.getDust());
+        assertEquals(addedPokemon.getCandy(), retrievedPokemon.getCandy());
+    }
+
+    // Helper method to create a test Pokemon
+    private Pokemon createTestPokemon() throws PokedexException {
+        return pokedex.createPokemon(0, 500, 50, 2000, 2);
+    }
+
+    // You can add more test cases for other methods as needed
 }
