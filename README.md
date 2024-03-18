@@ -35,3 +35,10 @@ Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à
 Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
+
+
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Corentin-RUIS/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Corentin-RUIS/ceri-m1-techniques-de-test/tree/master)
+
+[![codecov](https://codecov.io/gh/Corentin-RUIS/ceri-m1-techniques-de-test/graph/badge.svg?token=4FUOJHULD3)](https://codecov.io/gh/Corentin-RUIS/ceri-m1-techniques-de-test)
+
