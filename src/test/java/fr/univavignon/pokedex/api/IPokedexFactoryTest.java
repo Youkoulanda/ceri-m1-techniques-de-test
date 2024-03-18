@@ -2,8 +2,6 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertNotNull;
 
 public class IPokedexFactoryTest {
@@ -14,14 +12,12 @@ public class IPokedexFactoryTest {
 
     @Before
     public void setUp() {
-        // Initialize mock dependencies
-        metadataProvider = mock(IPokemonMetadataProvider.class);
-        pokemonFactory = mock(IPokemonFactory.class);
+        // Initialize real implementations of dependencies
+        metadataProvider = new PokemonMetadataProvider();
+        pokemonFactory = new PokemonFactory(metadataProvider);
 
-        // Configure the behavior of the pokedexFactory mock
-        pokedexFactory = mock(IPokedexFactory.class);
-        IPokedex pokedexMock = mock(IPokedex.class); // Create a mock IPokedex instance
-        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedexMock); // Specify the behavior of the factory method
+        // Create an instance of the PokedexFactory
+        pokedexFactory = new PokedexFactory();
     }
 
     @Test
