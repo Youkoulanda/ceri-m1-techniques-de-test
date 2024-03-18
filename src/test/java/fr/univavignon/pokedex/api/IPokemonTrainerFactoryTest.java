@@ -3,50 +3,48 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertEquals;
 
-public class IPokemonTrainerFactoryTest {
+class PokemonTrainerFactoryTest {
 
     private IPokemonTrainerFactory trainerFactory;
     private IPokedexFactory pokedexFactory;
-    private IPokedex pokedex;
 
     @Before
     public void setUp() {
-        // Initialize mock Trainer factory
-        trainerFactory = mock(IPokemonTrainerFactory.class);
-
         // Initialize mock Pokedex factory
         pokedexFactory = mock(IPokedexFactory.class);
 
-        // Initialize mock Pokedex
-        pokedex = mock(IPokedex.class);
+        // Initialize trainer factory
+        trainerFactory = new PokemonTrainerFactory();
     }
 
     @Test
     public void testCreateTrainer() {
         // Define trainer attributes
-        String name = "Sacha du bourg-palette";
-        Team team = Team.INSTINCT;
+        String name = "Ash Ketchum";
+        Team team = Team.MYSTIC;
 
-        // Create a sample trainer
-        PokemonTrainer trainer = new PokemonTrainer(name, team, pokedex);
+        // Create mock Pokedex
+        IPokedex pokedex = mock(IPokedex.class);
 
-        // Configure the mock to return the sample trainer when creating a trainer
-        when(trainerFactory.createTrainer(name, team, pokedexFactory)).thenReturn(trainer);
+        // Configure Pokedex factory mock to return the mock Pokedex
+        when(pokedexFactory.createPokedex(new PokemonMetadataProvider(), new PokemonFactory(new PokemonMetadataProvider()))).thenReturn(pokedex);
 
         // Call the method under test
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, team, pokedexFactory);
+        PokemonTrainer trainer = trainerFactory.createTrainer(name, team, pokedexFactory);
 
         // Verify that the created trainer is not null
-        assertNotNull(createdTrainer);
+        assertNotNull(trainer);
 
-        // Verify that the trainer's pokedex, team, and name match the expected values
-        assertEquals(pokedex, createdTrainer.getPokedex());
-        assertEquals(team, createdTrainer.getTeam());
-        assertEquals(name, createdTrainer.getName());
+        // Verify that the trainer's name and team match the expected values
+        assertEquals(name, trainer.getName());
+        assertEquals(team, trainer.getTeam());
+
+        // Verify that the trainer's pokedex is the mock Pokedex
+        assertEquals(pokedex, trainer.getPokedex());
     }
 }
