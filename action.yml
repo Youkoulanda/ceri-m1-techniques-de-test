@@ -1,0 +1,135 @@
+name: Deploy - Publish Javadoc
+description: "Automatically generate your JavaDoc and publish it to GitHub Page."
+branding:
+  icon: "book-open"
+  color: "white"
+
+inputs:
+
+  # Required inputs
+  java-version: # version of java
+    description: "Java version inside your project"
+    required: true
+    default: "17"
+
+  GITHUB_TOKEN: # GitHub Token
+    description: "The GitHub token the GitHub repository"
+    required: true
+  javadoc-branch: # branch where the javadoc is hosted
+    description: "Branch where the javadoc is hosted"
+    required: true
+    default: javadoc
+
+  target-folder: # target folder for the javadoc contents
+    description: "Directory where the javadoc contents should be stored"
+    required: true
+    default: .
+
+  # Optional inputs
+  java-distribution: # distribution of java
+    description: "Java distribution inside your project"
+    required: false
+    default: "adopt"
+  project:
+    description: "Maven or Gradle project"
+    required: false
+    default: maven
+
+  custom-command:
+    description: "Custom command to generate the javadoc"
+    required: false
+    default: ""
+
+
+  javadoc-source-folder:
+    description: "Custom path for the new Javadoc"
+    required: false
+    default: target/site/apidocs
+
+  # Development and testing inputs
+  without-deploy: # deploy the javadoc to the GitHub Page, is used for development testing with nektos/act
+    description: "Enable or disable deploy of the javadoc to the GitHub Page"
+    required: false
+    default: "false"
+
+  without-checkout: # checkout the javadoc branch, is used for development testing with nektos/act
+    description: "Enable or disable the checkout"
+    required: false
+    default: "false"
+
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+      if: inputs.without-checkout == 'false'
+      with:
+        fetch-depth: 0
+
+    - uses: actions/setup-java@v4
+      with:
+        java-version: ${{ inputs.java-version }}
+        distribution: ${{ inputs.java-distribution }}
+        cache: ${{ inputs.project }}
+
+    - name: Generate Javadoc with Maven
+      if: inputs.project == 'maven' && inputs.custom-command == ''
+      run: mvn javadoc:aggregate
+      shell: bash
+
+    - name: Generate Javadoc with Gradle
+      if: inputs.project == 'gradle' && inputs.custom-command == ''
+      run: gradle javadoc
+      shell: bash
+
+    - name: Generate Javadoc with custom command
+      if: inputs.custom-command != ''
+      run: ${{ inputs.custom-command }}
+      shell: bash
+
+    - name: Handle subdirectories for GitHub Pages
+      if: ${{ inputs.subdirectories != '' }}
+      run: |
+        if [ ! -d ${{ inputs.javadoc-source-folder }}]; then
+          mkdir -p ${{ inputs.javadoc-source-folder }}
+        fi
+        dirs=$(echo ${{ inputs.subdirectories }} | tr " " "\n")
+        
+        for dir in $dirs
+        do
+          mkdir -p ${{ inputs.javadoc-source-folder }}/$dir
+          cp -r $dir/${{ inputs.javadoc-source-folder }} ${{ inputs.javadoc-source-folder }}/$dir
+        done
+        ls -R ${{ inputs.javadoc-source-folder }}
+      shell: bash
+
+    - name: Deploy to GitHub Page 🚀 with Maven
+      if: ${{ inputs.without-deploy == 'false' && inputs.project == 'maven' }}
+      uses: JamesIves/github-pages-deploy-action@v4.4.3
+      with:
+        token: ${{ inputs.GITHUB_TOKEN }}
+        branch: ${{ inputs.javadoc-branch }}
+        clean: true
+        folder: ${{ inputs.javadoc-source-folder }}
+        target-folder: ${{ inputs.target-folder }}
+
+    - name: Set Javadoc source folder for Gradle
+      id: set-javadoc-source-folder
+      if: ${{ inputs.project == 'gradle' }}
+      run: |
+        if [ ${{ inputs.javadoc-source-folder }} == "target/site/apidocs" ]; then
+          echo "javadoc-source-folder=build/docs/javadoc" >> "$GITHUB_OUTPUT"
+        else
+          echo "javadoc-source-folder=${{ inputs.javadoc-source-folder }}" >> "$GITHUB_OUTPUT"
+        fi
+      shell: bash
+
+    - name: Deploy to GitHub Page 🚀 with Gradle
+      if: ${{ inputs.without-deploy == 'false' && inputs.project == 'gradle' }}
+      uses: JamesIves/github-pages-deploy-action@v4.4.3
+      with:
+        token: ${{ inputs.GITHUB_TOKEN }}
+        branch: ${{ inputs.javadoc-branch }}
+        clean: true
+        folder: ${{ steps.set-javadoc-source-folder.outputs.javadoc-source-folder }}
+        target-folder: ${{ inputs.target-folder }}
