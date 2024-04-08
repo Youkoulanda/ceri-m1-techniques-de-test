@@ -8,7 +8,7 @@
     <version>1.0.0</version>
 
     <dependencies>
-        <!-- Dépendances -->
+        <!-- Dependencies -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -32,12 +32,17 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- Autres dépendances -->
+        <!-- Other dependencies -->
+        <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>10.15.0</version>
+        </dependency>
     </dependencies>
 
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory> <!-- Ajout de cette ligne -->
+        <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>
 
             <plugin>
@@ -68,13 +73,26 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-                    <!-- Additional executions if needed -->
                 </executions>
             </plugin>
 
+            <!-- Add Checkstyle plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
 
-            <!-- Autres plugins -->
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
-
     </build>
 </project>
