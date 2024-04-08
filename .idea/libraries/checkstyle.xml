@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="checkstyle" type="repository">
+    <properties maven-id="checkstyle:checkstyle:5.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/checkstyle/checkstyle/5.0/checkstyle-5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.6/antlr-2.7.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/2.0/commons-collections-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.0/commons-cli-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/1.0/commons-lang-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.7/junit-3.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/collections/google-collections/0.9/google-collections-0.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

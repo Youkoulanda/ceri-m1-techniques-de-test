@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.xmlresolver:xmlresolver:data:5.2.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/xmlresolver/xmlresolver/5.2.2/xmlresolver-5.2.2-data.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/xmlresolver/xmlresolver/5.2.2/xmlresolver-5.2.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/xmlresolver/xmlresolver/5.2.2/xmlresolver-5.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
