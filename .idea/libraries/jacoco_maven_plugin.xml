@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="jacoco.maven.plugin" type="repository">
+    <properties maven-id="org.jacoco:jacoco-maven-plugin:0.8.11" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/jacoco-maven-plugin/0.8.11/jacoco-maven-plugin-0.8.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/shared/file-management/3.1.0/file-management-3.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.core/0.8.11/org.jacoco.core-0.8.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.6/asm-9.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.6/asm-commons-9.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.6/asm-tree-9.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.report/0.8.11/org.jacoco.report-0.8.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

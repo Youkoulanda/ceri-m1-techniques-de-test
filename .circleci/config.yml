@@ -1,0 +1,36 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+jobs:
+  test-java:
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - run:
+          name: Calculate cache key
+          command: |-
+            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+      - restore_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+      - run:
+          command: mvn verify
+      - store_test_results:
+          path: target/surefire-reports
+      - save_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          paths:
+            - ~/.m2/repository
+      - codecov/upload:
+          file: target/jacoco.exec
+
+
+
+workflows:
+  build-and-test:
+    jobs:
+      - test-java
+
