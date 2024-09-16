@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: mvn -B -DskipTests clean
+      - run:
+          name: Checkstyle
+          command: mvn checkstyle:check
+      - run:
+          name: Test
+          command: mvn verify
+      - codecov/upload:
+          file: target/jacoco.exec
+          flags: unittests
+
+workflows:
+  upload-to-codecov:
+    jobs:
+      - build-and-test
