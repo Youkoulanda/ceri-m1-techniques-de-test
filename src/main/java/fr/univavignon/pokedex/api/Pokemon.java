@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+
 /**
  * Pokemon POJO.
  * 
