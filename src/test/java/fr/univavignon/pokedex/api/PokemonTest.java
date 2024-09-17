@@ -19,6 +19,7 @@ class PokemonTest {
 
     @Test
     void getCandy() {
+        assertEquals(1, 2);
     }
 
     @Test
