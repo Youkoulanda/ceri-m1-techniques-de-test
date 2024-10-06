@@ -19,6 +19,11 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      -
+      # Navigate to the directory containing pom.xml
+      - run:
+          name: Navigate to the project directory
+          command: cd ceri-m1-techniques-de-test/ceri-m1-techniques-de-test-bousaid
 
       # Use mvn clean and package as the standard maven build phase
       - run:
