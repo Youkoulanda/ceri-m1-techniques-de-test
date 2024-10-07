@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/openjdk:8.0  
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: mvn -B -DskipTests clean package 
+      - run:
+          name: Unit Tests
+          command: mvn test  
+
+workflows:
+  version: 2
+  master-branch-workflow:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: master
