@@ -1,0 +1,32 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/configuration-reference
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
+jobs:
+  build:
+
+    docker:
+
+      - image: cimg/openjdk:8.0
+
+
+    steps:
+      - checkout
+
+    run :
+      name: Build with Maven
+      command : mvn clear install
+
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build :
+          filters:
+            branches:
+              only :
+                - master
