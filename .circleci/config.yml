@@ -6,18 +6,14 @@ version: 2.1
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   build:
-
     docker:
-
       - image: cimg/openjdk:8.0
-
 
     steps:
       - checkout
-
-    run :
-      name: Build with Maven
-      command : mvn clear install
+      - run:
+          name: Build with Maven
+          command: mvn clean install
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
@@ -25,8 +21,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - build :
+      - build:
           filters:
             branches:
-              only :
+              only:
                 - master
