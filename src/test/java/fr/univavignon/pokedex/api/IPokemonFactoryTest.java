@@ -18,16 +18,16 @@ public class IPokemonFactoryTest {
 
     @Test
     public void testCreatePokemon() {
-        Pokemon expectedPokemon = new Pokemon(0, "Bulbizar", 126, 126, 90, 20, 60, 2, 4, 0.5);
-        when(pokemonFactory.createPokemon(0, 20, 60, 2, 4)).thenReturn(expectedPokemon);
-        Pokemon createdPokemon = pokemonFactory.createPokemon(0, 20, 60, 2, 4);
+        Pokemon expectedPokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(expectedPokemon);
+        Pokemon createdPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
         assertNotNull(createdPokemon);
         assertEquals(0, createdPokemon.getIndex());
-        assertEquals("Bulbizar", createdPokemon.getName());
-        assertEquals(20, createdPokemon.getCp());
-        assertEquals(60, createdPokemon.getHp());
-        assertEquals(2, createdPokemon.getDust());
+        assertEquals("Bulbizarre", createdPokemon.getName());
+        assertEquals(613, createdPokemon.getCp());
+        assertEquals(64, createdPokemon.getHp());
+        assertEquals(4000, createdPokemon.getDust());
         assertEquals(4, createdPokemon.getCandy());
     }
 }

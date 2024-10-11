@@ -18,13 +18,13 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testGetPokemonMetadataValidIndex() throws PokedexException {
-        PokemonMetadata expectedMetadata = new PokemonMetadata(0, "Bulbizar", 10, 20, 30);
+        PokemonMetadata expectedMetadata = new PokemonMetadata(0, "Bulbizarre", 10, 20, 30);
         when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(expectedMetadata);
         PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
 
         assertNotNull(metadata);
         assertEquals(0, metadata.getIndex());
-        assertEquals("Bulbizar", metadata.getName());
+        assertEquals("Bulbizarre", metadata.getName());
         assertEquals(10, metadata.getAttack());
         assertEquals(20, metadata.getDefense());
         assertEquals(30, metadata.getStamina());

@@ -30,7 +30,7 @@ public class IPokedexTest {
 
     @Test
     public void testAddPokemon() {
-        Pokemon pokemon = new Pokemon(0, "Bulbizar", 33, 33, 33, 33, 33, 33, 33, 33);
+        Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
         when(pokedex.addPokemon(pokemon)).thenReturn(0);
         int index = pokedex.addPokemon(pokemon);
 
@@ -39,12 +39,12 @@ public class IPokedexTest {
 
     @Test
     public void testGetPokemonValidId() throws PokedexException {
-        Pokemon pokemon = new Pokemon(0, "Bulbizar", 33, 33, 33, 33, 33, 33, 33, 33);
+        Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
         when(pokedex.getPokemon(0)).thenReturn(pokemon);
         Pokemon result = pokedex.getPokemon(0);
 
         assertNotNull(result);
-        assertEquals("Bulbizar", result.getName());
+        assertEquals("Bulbizarre", result.getName());
     }
 
     @Test
@@ -58,8 +58,8 @@ public class IPokedexTest {
     @Test
     public void testGetPokemons() {
         List<Pokemon> pokemons = Arrays.asList(
-                new Pokemon(0, "Bulbizar", 33, 33, 33, 33, 33, 33, 33, 33),
-                new Pokemon(151, "MewTwo", 33, 33, 33, 33, 33, 33, 33, 33)
+                new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56),
+                new Pokemon(133, "Aquali", 186, 168, 260, 2729  , 202, 5000, 4, 1)
         );
         when(pokedex.getPokemons()).thenReturn(pokemons);
         List<Pokemon> result = pokedex.getPokemons();
@@ -71,13 +71,13 @@ public class IPokedexTest {
     @Test
     public void testGetPokemonsSorted() {
         List<Pokemon> pokemons = Arrays.asList(
-                new Pokemon(0, "Bulbizar", 33, 33, 33, 33, 33, 33, 33, 33),
-                new Pokemon(151, "MewTwo", 33, 33, 33, 33, 33, 33, 33, 33)
+                new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56),
+                new Pokemon(133, "Aquali", 186, 168, 260, 2729  , 202, 5000, 4, 1)
         );
         Comparator<Pokemon> comparator = Comparator.comparing(Pokemon::getName);
         when(pokedex.getPokemons(comparator)).thenReturn(pokemons);
         List<Pokemon> result = pokedex.getPokemons(comparator);
 
-        assertEquals("Bulbizar", result.get(0).getName());
+        assertEquals("Bulbizarre", result.get(0).getName());
     }
 }
