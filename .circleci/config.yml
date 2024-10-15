@@ -32,6 +32,9 @@ jobs:
           name: Test
           command: mvn test
 
+      - codecov/upload:  # Upload the coverage report to Codecov
+          file: target/site/jacoco/jacoco.xml  # Specify the correct path to the coverage report
+
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
@@ -42,7 +45,6 @@ workflows:
   upload-to-codecov:
     jobs:
       - build-and-test 
-      - codecov/upload
 
   
   
