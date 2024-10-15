@@ -28,9 +28,13 @@ jobs:
           name: Build
           command: mvn -B -DskipTests clean package
       # Then run your tests!
+      
       - run:
-          name: Test
-          command: mvn test
+          name: Test and Generate Coverage
+          command: mvn test jacoco:report 
+
+      - codecov/upload:  # Upload the coverage report to Codecov
+          file: target/site/jacoco/jacoco.xml  # Specify the correct path to the coverage report  
 
       - codecov/upload:  # Upload the coverage report to Codecov
           file: target/site/jacoco/jacoco.xml  # Specify the correct path to the coverage report
@@ -42,6 +46,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+  
   upload-to-codecov:
     jobs:
       - build-and-test 
