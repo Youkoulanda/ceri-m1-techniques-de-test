@@ -34,8 +34,6 @@ public class IPokemonFactoryTest {
         assertEquals(98, createdPokemon.getStamina());
     }
 
-
-    
     @Test
     public void testCreatePokemonAquali() {
         Pokemon expectedPokemon = new Pokemon(0, "Aquali", 201, 201, 275, 2729, 202, 5000, 4, 1);
