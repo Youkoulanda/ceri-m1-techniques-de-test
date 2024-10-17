@@ -34,6 +34,7 @@ public class IPokemonFactoryTest {
         assertEquals(98, createdPokemon.getStamina());
     }
 
+
     
     @Test
     public void testCreatePokemonAquali() {
