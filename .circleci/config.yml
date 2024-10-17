@@ -32,13 +32,7 @@ jobs:
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
-orbs:
-  codecov: codecov/codecov@4.0.1
 workflows:
-  upload-to-codecov:
-    jobs:
-      - checkout 
-      - codecov/upload
   build-and-test-workflow:
     jobs:
       - build-and-test:
