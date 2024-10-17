@@ -38,11 +38,11 @@ public class IPokemonFactoryTest {
     public void testCreatePokemonAquali() {
         Pokemon expectedPokemon = new Pokemon(0, "Aquali", 201, 201, 275, 2729, 202, 5000, 4, 1);
         when(pokemonFactory.createPokemon(0, 2729, 202, 5000, 4)).thenReturn(expectedPokemon);
-        Pokemon createdPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        Pokemon createdPokemon = pokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
 
         assertNotNull(createdPokemon);
         assertEquals(0, createdPokemon.getIndex());
-        assertEquals("Bulbizarre", createdPokemon.getName());
+        assertEquals("Aquali", createdPokemon.getName());
         assertEquals(2729, createdPokemon.getCp());
         assertEquals(202, createdPokemon.getHp());
         assertEquals(5000, createdPokemon.getDust());
