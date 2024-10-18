@@ -26,11 +26,11 @@ workflows:
   upload-to-codecov:
     jobs:
       - codecov/upload:
-      - checkout:
-        filters:
+          filters:
             branches:
               only:
                 - master
+      - checkout
   build:
     jobs:
       - build:
