@@ -2,6 +2,9 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
@@ -15,10 +18,18 @@ jobs:
           name: Build with Maven
           command: mvn clean install
 
+
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   version: 2
+  upload-to-codecov:
+    jobs:
+      - codecov/upload:
+          filters:
+            branches:
+              only:
+                - master
   build:
     jobs:
       - build:
