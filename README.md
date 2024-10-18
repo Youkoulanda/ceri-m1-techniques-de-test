@@ -5,6 +5,9 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/OumaYma199/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/OumaYma199/ceri-m1-techniques-de-test/tree/master)
 [![codecov](https://codecov.io/github/OumaYma199/ceri-m1-techniques-de-test/graph/badge.svg?token=4IGQXO1YWH)](https://codecov.io/github/OumaYma199/ceri-m1-techniques-de-test)
 
+## Documentation
+
+Ce projet utilise Maven pour la gestion des dépendances et JaCoCo pour la couverture de code. Nous avons choisi CircleCI pour l'intégration continue afin d'automatiser les tests et le déploiement. Les résultats de couverture sont publiés sur Codecov pour un suivi facile.
 
 ## Introduction
 
