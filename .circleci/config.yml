@@ -22,16 +22,14 @@ jobs:
           command: mvn clean install
       - run:
           name: Generate Coverage Report
-          command: mvn jacoco:report
+          command: mvn test jacoco:report
 
   upload_codecov:
     docker:
-      - image: cimg/openjdk:21.0
+      - image: cimg/openjdk:8.0
     steps:
       - checkout
-      - run:
-          name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash) -t your-codecov-token
+      - codecov/upload
 
 # Orchestrate jobs using workflows
 workflows:
