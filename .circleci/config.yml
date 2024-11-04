@@ -1,4 +1,4 @@
-# Utilisation de la version 2.1 de l'engine de pipeline de CircleCI
+# Utilisation de la version 2.1 du moteur de pipeline de CircleCI
 # Voir : https://circleci.com/docs/configuration-reference
 version: 2.1
 
@@ -9,29 +9,22 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/openjdk:8.0
+      - image: cimg/openjdk:8.0  # Utilisation de l'image Docker OpenJDK 8
 
     steps:
-      - checkout
+      - checkout  # Récupération du code source
       - run:
           name: Build
-          command: mvn -B -DskipTests clean package
+          command: mvn -B -DskipTests clean package  # Compilation sans exécuter les tests
       - run:
           name: Build with Maven
-          command: mvn clean install
+          command: mvn clean install  # Compilation complète avec Maven
       - run:
           name: Run Tests and Generate Coverage Report
-          command: mvn test jacoco:report
-    executor:
-
-upload_codecov:
-    docker:
-      - image: cimg/openjdk:8.0
-    steps:
-      - checkout
+          command: mvn test jacoco:report  # Exécution des tests et génération du rapport de couverture
       - run:
           name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash)
+          command: bash <(curl -s https://codecov.io/bash)  # Envoi du rapport de couverture à Codecov
 
 # Orchestration des jobs dans le workflow
 workflows:
@@ -42,11 +35,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
-      - upload_codecov:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
+                - master  # Exécution du job 'build' uniquement sur la branche 'master'
