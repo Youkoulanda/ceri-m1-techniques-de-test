@@ -36,8 +36,8 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
 
-# Nom et Prénom
-## Groupe : MonGroupe
+# JAHID Ismail
+## Groupe : G1 Classique
 
 ![CircleCI](https://circleci.com/gh/ton-utilisateur/ton-repo.svg?style=shield)
 ![Codecov](https://codecov.io/gh/ton-utilisateur/ton-repo/branch/master/graph/badge.svg)
