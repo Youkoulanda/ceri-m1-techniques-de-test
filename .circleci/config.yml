@@ -27,8 +27,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test
-  upload-to-codecov:
-    jobs:
-      - checkout
-      - codecov/upload
+      - test:
+          requires:
+            - build
+      - upload_to_codecov:
+          requires:
+            - test
