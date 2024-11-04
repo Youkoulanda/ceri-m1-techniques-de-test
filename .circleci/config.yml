@@ -35,7 +35,7 @@ upload_codecov:
 # Orchestration des jobs dans le workflow
 workflows:
   version: 2
-  build_and_upload:
+  build:
     jobs:
       - build:
           filters:
