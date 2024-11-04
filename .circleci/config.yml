@@ -7,7 +7,7 @@ orbs:
 
 # Définition des jobs pour le workflow
 jobs:
- build:
+  build:
     docker:
       - image: cimg/openjdk:8.0
 
@@ -22,6 +22,7 @@ jobs:
       - run:
           name: Run Tests and Generate Coverage Report
           command: mvn test jacoco:report
+    executor:
 
 upload_codecov:
     docker:
@@ -30,7 +31,7 @@ upload_codecov:
       - checkout
       - run:
           name: Upload Coverage to Codecov
-          command:  bash <(curl -s https://codecov.io/bash)
+          command: bash <(curl -s https://codecov.io/bash)
 
 # Orchestration des jobs dans le workflow
 workflows:
