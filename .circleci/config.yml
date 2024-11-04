@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 jobs:
   build:
     docker:
@@ -25,3 +28,7 @@ workflows:
     jobs:
       - build
       - test
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
