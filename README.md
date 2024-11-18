@@ -1,5 +1,14 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+## NOM: Louda
+## Prenom: Aghiles
+## Groupe: Ia-cla
+## badge-CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Aghiles-ai/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Aghiles-ai/ceri-m1-techniques-de-test/tree/master)
+
+## badge_couverture_Test: [![codecov](https://codecov.io/gh/Aghiles-ai/ceri-m1-techniques-de-test/graph/badge.svg?token=OZX76ISHAH)](https://codecov.io/gh/Aghiles-ai/ceri-m1-techniques-de-test) 
+
+
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
