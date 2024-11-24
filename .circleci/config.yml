@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+  maven: circleci/maven@1.4
+
+jobs:
+  test-java:
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - run:
+          name: Calculate cache key
+          command: |-
+            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+      - restore_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+      - run:
+          command: mvn verify
+      - run:
+          name: Run Checkstyle
+          command: mvn checkstyle:check
+      - store_test_results:
+          path: target/surefire-reports
+      - store_artifacts:
+          path: target/surefire-reports
+      - store_artifacts:
+          path: target/checkstyle-result.xml
+      - save_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+          paths:
+            - ~/.m2/repository
+  codecov-upload:
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - codecov/upload:
+          file: target/site/jacoco/jacoco.xml  # Path to your Jacoco report
+
+#test line
+workflows:
+  build-and-test:
+    jobs:
+      - test-java
+      - codecov-upload:
+          requires:
+            - test-java
+

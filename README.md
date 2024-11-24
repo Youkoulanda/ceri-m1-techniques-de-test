@@ -1,3 +1,9 @@
+BRAHIMI Farouk. <br>
+Groupe IA Classique. <br>
+Un badge pour CircleCI.<br>
+Un badge pour la couverture de test. <br>
+Un badge pour checkstyle
+
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
