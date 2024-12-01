@@ -3,41 +3,54 @@ package fr.univavignon.pokedex.api;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class IPokemonMetadataProviderTest {
-    IPokemonMetadataProvider pokemonMetadataProvider;
 
-    PokemonMetadata aquali;
-    PokemonMetadata bulbizarre;
+    private IPokemonMetadataProvider pokemonMetadataProvider;
+
+    private PokemonMetadata aquali;
+    private PokemonMetadata bulbizarre;
 
     @Before
     public void init() {
-
-        pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
-
+        pokemonMetadataProvider = new PokemonMetadataProvider();
         bulbizarre = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-
         aquali = new PokemonMetadata(133, "Aquali", 186, 186, 260);
     }
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
+        // Test for a valid Pokémon (index 0: Bulbizarre)
+        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
+        Assert.assertEquals(bulbizarre.getIndex(), metadata.getIndex());
+        Assert.assertEquals(bulbizarre.getName(), metadata.getName());
+        Assert.assertEquals(bulbizarre.getAttack(), metadata.getAttack());
+        Assert.assertEquals(bulbizarre.getDefense(), metadata.getDefense());
+        Assert.assertEquals(bulbizarre.getStamina(), metadata.getStamina());
 
-        Mockito.doReturn(aquali).when(pokemonMetadataProvider).getPokemonMetadata(133);
+        // Test for another valid Pokémon (index 133: Aquali)
+        metadata = pokemonMetadataProvider.getPokemonMetadata(133);
+        Assert.assertEquals(aquali.getIndex(), metadata.getIndex());
+        Assert.assertEquals(aquali.getName(), metadata.getName());
+        Assert.assertEquals(aquali.getAttack(), metadata.getAttack());
+        Assert.assertEquals(aquali.getDefense(), metadata.getDefense());
+        Assert.assertEquals(aquali.getStamina(), metadata.getStamina());
 
-        Mockito.doReturn(bulbizarre).when(pokemonMetadataProvider).getPokemonMetadata(0);
+        // Test for an invalid index (negative index)
+        try {
+            pokemonMetadataProvider.getPokemonMetadata(-189);
+            Assert.fail("Expected exception");
+        } catch (PokedexException e) {
+            Assert.assertEquals("Pokemon not found", e.getMessage());
+        }
 
-        Assert.assertEquals(bulbizarre, pokemonMetadataProvider.getPokemonMetadata(0));
-
-        Assert.assertEquals(aquali, pokemonMetadataProvider.getPokemonMetadata(133));
-
-        Mockito.doThrow(new PokedexException("L'index fourni n'existe pas ")).when(pokemonMetadataProvider)
-                .getPokemonMetadata(Mockito.intThat(i -> i < 0 || i > 150));
-
-        Assert.assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(-189));
-
-        Assert.assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(313));
+        // Test for an index too large (out-of-bound index)
+        try {
+            pokemonMetadataProvider.getPokemonMetadata(313);
+            Assert.fail("Expected exception");
+        } catch (PokedexException e) {
+            Assert.assertEquals("Pokemon not found", e.getMessage());
+        }
     }
 
 }

@@ -1,88 +1,99 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.util.ArrayList;
-import java.util.Collections;
+import static org.junit.Assert.*;
 import java.util.List;
+import java.util.ArrayList;
 
 public class IPokedexTest {
     private IPokedex pokedex;
+    private IPokemonMetadataProvider metadataProvider;
+    private IPokemonFactory pokemonFactory;
     private Pokemon bulbizarre;
     private Pokemon aquali;
     private ArrayList<Pokemon> pokemons;
 
     @Before
-    public void Init() {
-        pokedex = Mockito.mock(IPokedex.class);
+    public void init() {
+        pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
-        // Initialisation des Pokémon
         bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
         aquali = new Pokemon(133, "Aquali", 186, 186, 260, 2729, 202, 5000, 4, 100.0);
-
         pokemons = new ArrayList<>();
-        // Ajout des Pokémon à la liste
         pokemons.add(bulbizarre);
         pokemons.add(aquali);
+        pokedex.addPokemon(bulbizarre);
+        pokedex.addPokemon(aquali);
     }
 
-    @Test
-    public void testSize() {
-        // Simulation de la taille du Pokedex
-        Mockito.doReturn(pokemons.size()).when(pokedex).size();
-
-        // Vérification que la taille de la liste est bien 2
-        Assert.assertEquals(2, pokedex.size());
-    }
-
+    // Checking that the Pokedex contains the two Pokémon
     @Test
     public void testAddPokemon() {
-        // Simulation de l'ajout d'un Pokémon
-        Mockito.doReturn(pokemons.size() + 1).when(pokedex).addPokemon(Mockito.any(Pokemon.class));
-
-        // Vérification de l'ajout d'un Pokémon, la taille de la liste doit être 3
-        Assert.assertEquals(3, pokedex.addPokemon(new Pokemon(2, "Pikachu", 200, 200, 4000, 200, 10000, 0, 0, 100.0)));
+        assertEquals(2, pokedex.size());
     }
 
+    // Checking that an exception is thrown when adding a null Pokémon
+    @Test
+    public void testAddNullPokemon() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokedex.addPokemon(null);
+        });
+    }
+
+    // Checking correct retrieval of a Pokémon by its index
     @Test
     public void testGetPokemon() throws PokedexException {
-        // Simulation de la récupération des Pokémon par ID
-        Mockito.doReturn(aquali).when(pokedex).getPokemon(133);
-        Mockito.doReturn(bulbizarre).when(pokedex).getPokemon(0);
-
-        // Vérification que le Pokémon avec l'ID 0 est bien Bulbizarre
-        Assert.assertEquals(bulbizarre, pokedex.getPokemon(0));
-        Assert.assertEquals(aquali, pokedex.getPokemon(133));
-
-        // Simulation d'une exception pour un index inexistant (valeurs entre 0 et 150)
-        Mockito.doThrow(new PokedexException("Le Pokémon avec cet index n'existe pas")).when(pokedex)
-                .getPokemon(Mockito.intThat(i -> i < 0 || i > 150));
-
-        // Vérification des exceptions pour des indices invalides
-        Assert.assertThrows(PokedexException.class, () -> pokedex.getPokemon(300));
-        Assert.assertThrows(PokedexException.class, () -> pokedex.getPokemon(-2));
+        Pokemon retrievedPokemon = pokedex.getPokemon(0);
+        assertEquals(bulbizarre, retrievedPokemon);
     }
 
+    // Checking that an exception is thrown for an invalid index
+    @Test
+    public void testGetPokemonInvalidId() {
+        assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(999);
+        });
+    }
+
+    // Checking that all Pokémon are correctly retrieved
     @Test
     public void testGetPokemons() {
+        List<Pokemon> allPokemons = pokedex.getPokemons();
+        assertEquals(2, allPokemons.size());
+        assertTrue(allPokemons.contains(bulbizarre));
+        assertTrue(allPokemons.contains(aquali));
+    }
 
-        // Création d'une liste non modifiable des Pokémon
-        List<Pokemon> unmodifiableList = Collections.unmodifiableList(pokemons);
+    // Retrieving Pokémon sorted and checking sorting by index
+    @Test
+    public void testGetPokemonsWithComparatorByIndex() {
+        List<Pokemon> ResultPokemons = pokedex.getPokemons(PokemonComparators.INDEX);
+        assertEquals(bulbizarre, ResultPokemons.get(0));
+        assertEquals(aquali, ResultPokemons.get(1));
+    }
 
-        // Simulation du retour de la liste non modifiable
-        Mockito.doReturn(unmodifiableList).when(pokedex).getPokemons();
+    // Retrieving Pokémon sorted and checking sorting by CP
+    @Test
+    public void testGetPokemonsWithComparatorByCP() {
+        List<Pokemon> PokemonsResult = pokedex.getPokemons(PokemonComparators.CP);
+        assertEquals(bulbizarre, PokemonsResult.get(0));
+        assertEquals(aquali, PokemonsResult.get(1));
+    }
 
-        // Vérification que les tailles des listes sont identiques
-        Assert.assertEquals(pokemons.size(), pokedex.getPokemons().size());
+    // Checking that the createPokemon method throws an unsupported exception
+    @Test
+    public void testUnsupportedCreatePokemon() {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            pokedex.createPokemon(0, 10, 10, 50, 100);
+        });
+    }
 
-        // Vérification que les objets sont bien placés avec leurs indices
-        Assert.assertEquals(aquali, pokedex.getPokemons().get(1));
-
-        Assert.assertEquals(pokemons.get(0), pokedex.getPokemons().get(0));
-
-        Assert.assertEquals(unmodifiableList.getClass(), pokedex.getPokemons().getClass());
+    // Checking that the getPokemonMetadata method throws an unsupported exception
+    @Test
+    public void testUnsupportedGetPokemonMetadata() {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            pokedex.getPokemonMetadata(0);
+        });
     }
 }
