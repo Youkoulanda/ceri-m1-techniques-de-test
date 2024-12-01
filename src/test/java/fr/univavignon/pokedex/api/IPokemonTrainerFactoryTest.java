@@ -7,50 +7,49 @@ import org.junit.Test;
 public class IPokemonTrainerFactoryTest {
 
     private IPokemonMetadataProvider pokemonMetadataProvider;
-
-    private PokemonMetadata aquali;
-    private PokemonMetadata bulbizarre;
+    private PokemonMetadata vaporeon;
+    private PokemonMetadata bulbasaur;
 
     @Before
     public void init() {
-        // Utilisation de l'implémentation réelle du fournisseur de métadonnées
+        // Using the real implementation of the metadata provider
         pokemonMetadataProvider = new PokemonMetadataProvider();
 
-        // Initialisation des objets PokemonMetadata pour les tests
-        bulbizarre = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-        aquali = new PokemonMetadata(133, "Aquali", 186, 186, 260);
+        // Initializing the PokemonMetadata objects for testing
+        bulbasaur = new PokemonMetadata(0, "Bulbasaur", 126, 126, 90);
+        vaporeon = new PokemonMetadata(133, "Vaporeon", 186, 186, 260);
     }
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
-        // Test pour un Pokémon valide (index 0 : Bulbizarre)
+        // Test for a valid Pokémon (index 0: Bulbasaur)
         PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
-        Assert.assertEquals(bulbizarre.getIndex(), metadata.getIndex());
-        Assert.assertEquals(bulbizarre.getName(), metadata.getName());
-        Assert.assertEquals(bulbizarre.getAttack(), metadata.getAttack());
-        Assert.assertEquals(bulbizarre.getDefense(), metadata.getDefense());
-        Assert.assertEquals(bulbizarre.getStamina(), metadata.getStamina());
+        Assert.assertEquals(bulbasaur.getIndex(), metadata.getIndex());
+        Assert.assertEquals(bulbasaur.getName(), metadata.getName());
+        Assert.assertEquals(bulbasaur.getAttack(), metadata.getAttack());
+        Assert.assertEquals(bulbasaur.getDefense(), metadata.getDefense());
+        Assert.assertEquals(bulbasaur.getStamina(), metadata.getStamina());
 
-        // Test pour un autre Pokémon valide (index 133 : Aquali)
+        // Test for another valid Pokémon (index 133: Vaporeon)
         metadata = pokemonMetadataProvider.getPokemonMetadata(133);
-        Assert.assertEquals(aquali.getIndex(), metadata.getIndex());
-        Assert.assertEquals(aquali.getName(), metadata.getName());
-        Assert.assertEquals(aquali.getAttack(), metadata.getAttack());
-        Assert.assertEquals(aquali.getDefense(), metadata.getDefense());
-        Assert.assertEquals(aquali.getStamina(), metadata.getStamina());
+        Assert.assertEquals(vaporeon.getIndex(), metadata.getIndex());
+        Assert.assertEquals(vaporeon.getName(), metadata.getName());
+        Assert.assertEquals(vaporeon.getAttack(), metadata.getAttack());
+        Assert.assertEquals(vaporeon.getDefense(), metadata.getDefense());
+        Assert.assertEquals(vaporeon.getStamina(), metadata.getStamina());
 
-        // Test pour un index invalide (index négatif)
+        // Test for an invalid index (negative index)
         try {
             pokemonMetadataProvider.getPokemonMetadata(-189);
-            Assert.fail("Exception attendue");
+            Assert.fail("Expected exception");
         } catch (PokedexException e) {
             Assert.assertEquals("Pokemon not found", e.getMessage());
         }
 
-        // Test pour un index trop grand
+        // Test for an index too large
         try {
             pokemonMetadataProvider.getPokemonMetadata(313);
-            Assert.fail("Exception attendue");
+            Assert.fail("Expected exception");
         } catch (PokedexException e) {
             Assert.assertEquals("Pokemon not found", e.getMessage());
         }
