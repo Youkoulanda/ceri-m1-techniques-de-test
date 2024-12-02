@@ -1,9 +1,7 @@
-# Utilisation de la version 2.1 du moteur de pipeline de CircleCI
-# Voir : https://circleci.com/docs/configuration-reference
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@4.0.1
+  codecov: codecov/codecov@4.0.1  # Utilisation de l'orb Codecov
 
 # Définition des jobs pour le workflow
 jobs:
@@ -13,18 +11,31 @@ jobs:
 
     steps:
       - checkout  # Récupération du code source
+
+      # Compilation sans exécuter les tests
       - run:
-          name: Build
-          command: mvn -B -DskipTests clean package  # Compilation sans exécuter les tests
+          name: Build (without tests)
+          command: mvn -B -DskipTests clean package
+
+      # Compilation complète avec Maven
       - run:
           name: Build with Maven
-          command: mvn clean install  # Compilation complète avec Maven
+          command: mvn clean install
+
+      # Exécution des tests et génération du rapport de couverture
       - run:
           name: Run Tests and Generate Coverage Report
-          command: mvn test jacoco:report  # Exécution des tests et génération du rapport de couverture
+          command: mvn test jacoco:report
+
+      # Envoi du rapport de couverture à Codecov
       - run:
           name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash)  # Envoi du rapport de couverture à Codecov
+          command: bash <(curl -s https://codecov.io/bash)
+
+      # Exécution de l'analyse Checkstyle
+      - run:
+          name: Checkstyle Analysis
+          command: cd TP-techniques_de_test && mvn checkstyle:checkstyle
 
 # Orchestration des jobs dans le workflow
 workflows:
