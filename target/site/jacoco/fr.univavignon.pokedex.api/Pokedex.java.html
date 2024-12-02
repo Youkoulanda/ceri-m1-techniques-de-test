@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokedex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java-project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">Pokedex.java</span></div><h1>Pokedex.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+/**
+ * Implementation of the IPokedex interface.
+ * This class manages a collection of captured Pokémon and their metadata.
+ */
+public class Pokedex implements IPokedex {
+
+
+    private final List&lt;Pokemon&gt; pokemons;
+    IPokemonMetadataProvider metadataProvider;
+    IPokemonFactory pokemonFactory;
+
+    /**
+     * Default constructor for the Pokedex.
+     * Initializes the Pokémon list and the metadata provider and factory.
+     *
+     * @param metadataProvider The metadata provider that the Pokedex will use.
+     * @param pokemonFactory The Pokémon factory that the Pokedex will use.
+     */
+<span class="fc" id="L26">    public Pokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L27">        this.pokemons = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L28">        this.metadataProvider = metadataProvider;</span>
+<span class="fc" id="L29">        this.pokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L30">    }</span>
+
+    /**
+     * Returns the total number of Pokémon in the Pokedex.
+     */
+    @Override
+    public int size() {
+<span class="fc" id="L37">        return pokemons.size();</span>
+    }
+
+    /**
+     * Adds a Pokémon to the Pokedex and returns its unique index.
+     *
+     * @param pokemon The Pokémon to add.
+     * @return The index of the added Pokémon.
+     * @throws IllegalArgumentException if the Pokémon is null.
+     */
+    @Override
+    public int addPokemon(Pokemon pokemon) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (pokemon == null) {</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;The Pokémon to add cannot be null.&quot;);</span>
+        }
+<span class="fc" id="L52">        pokemons.add(pokemon);</span>
+<span class="fc" id="L53">        return pokemons.size() - 1;</span>
+    }
+
+    /**
+     * Retrieves a Pokémon by its unique ID.
+     *
+     * @param id The unique ID of the Pokémon.
+     * @return The corresponding Pokémon.
+     * @throws PokedexException if the ID is invalid.
+     */
+    @Override
+    public Pokemon getPokemon(int id) throws PokedexException {
+<span class="pc bpc" id="L65" title="1 of 4 branches missed.">        if (id &lt; 0 || id &gt;= pokemons.size()) {</span>
+<span class="fc" id="L66">            throw new PokedexException(&quot;The provided ID is invalid: &quot; + id);</span>
+        }
+<span class="fc" id="L68">        return pokemons.get(id);</span>
+    }
+
+    /**
+     * Returns an immutable list of all Pokémon in the Pokedex.
+     */
+    @Override
+    public List&lt;Pokemon&gt; getPokemons() {
+<span class="fc" id="L76">        return Collections.unmodifiableList(pokemons);</span>
+    }
+
+    /**
+     * Returns an immutable list sorted according to a provided comparator.
+     *
+     * @param order Comparator to sort the Pokémon.
+     * @return Sorted and immutable list.
+     */
+    @Override
+    public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
+<span class="fc" id="L87">        List&lt;Pokemon&gt; sortedList = new ArrayList&lt;&gt;(pokemons);</span>
+<span class="fc" id="L88">        sortedList.sort(order);</span>
+<span class="fc" id="L89">        return Collections.unmodifiableList(sortedList);</span>
+    }
+
+    /**
+     * Creates a Pokémon with the provided attributes.
+     * This method is not yet implemented.
+     */
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+<span class="fc" id="L98">        throw new UnsupportedOperationException(&quot;Pokémon creation is not yet implemented.&quot;);</span>
+    }
+
+    /**
+     * Returns the metadata of a given Pokémon.
+     * This method is not yet implemented.
+     */
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+<span class="fc" id="L107">        throw new UnsupportedOperationException(&quot;Retrieving metadata is not yet implemented.&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
