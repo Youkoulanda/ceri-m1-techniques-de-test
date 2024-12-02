@@ -12,9 +12,10 @@
 	<name>java-project</name>
 	<url> http://univ-avignon.fr </url>
 	<properties>
-		<maven.compliler.sources>1.8</maven.compliler.sources>
-		<maven.compliler.target>1.8</maven.compliler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -90,4 +91,13 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>31.0.1-jre</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
