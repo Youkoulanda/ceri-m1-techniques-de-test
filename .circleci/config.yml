@@ -35,7 +35,7 @@ jobs:
       # Exécution de l'analyse Checkstyle
       - run:
           name: Checkstyle Analysis
-          command: mvn checkstyle:checkstyle
+          command: cd ceri-m1-techniques-de-test  && mvn checkstyle:checkstyle
 
 # Orchestration des jobs dans le workflow
 workflows:
@@ -46,4 +46,4 @@ workflows:
           filters:
             branches:
               only:
-                - master  # Exécution du job 'build' uniquement sur la branche 'master'
+                - master
