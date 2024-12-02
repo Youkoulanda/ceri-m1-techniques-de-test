@@ -1,23 +1,24 @@
-<project
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.univavignon.ceri</groupId>
-    <artifactId>ceri-m1-techniques-de-test</artifactId>
+	<artifactId>ceri-m1-techniques-de-test</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>java-project</name>
-	<url> http://univ-avignon.fr </url>
+	<url>http://univ-avignon.fr</url>
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
 		<plugins>
+			<!-- Plugin pour la création d'un JAR ombré (shade) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -31,6 +32,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Plugin pour la couverture de code avec JaCoCo -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -50,12 +53,15 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Plugin Checkstyle -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
 					<configLocation>google_checks.xml</configLocation>
+					<encoding>UTF-8</encoding>
 					<failOnViolation>true</failOnViolation>
 					<outputFile>target/checkstyle-result.xml</outputFile>
 				</configuration>
@@ -69,33 +75,31 @@
 				</executions>
 			</plugin>
 		</plugins>
-</build>
+	</build>
+
 	<dependencies>
+		<!-- Dépendance pour JUnit (version 4) -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+
+		<!-- Dépendance pour Mockito (version 4.10.0) -->
 		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-core</artifactId>
-		    <version>4.10.0</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>RELEASE</version>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>4.10.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Dépendance pour Checkstyle (version 8.45) -->
 		<dependency>
 			<groupId>com.puppycrawl.tools</groupId>
 			<artifactId>checkstyle</artifactId>
 			<version>8.45</version>
 		</dependency>
-
 	</dependencies>
 
 </project>
