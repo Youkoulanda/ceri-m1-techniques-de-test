@@ -201,7 +201,6 @@
         <!-- Enable use of @SuppressWarnings("checkstyle:...") -->
         <!-- See https://checkstyle.org/config_annotation.html#SuppressWarningsHolder -->
         <module name="SuppressWarningsHolder"/>
-
     </module>
 
 </module>
