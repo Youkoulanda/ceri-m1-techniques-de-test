@@ -24,10 +24,10 @@ public class PokemonFactory implements IPokemonFactory {
         }
 
         PokemonMetadata bulbizarMetadata =  new PokemonMetadata(0, "Bulbizarre", 126 , 126, 90);
-        PokemonMetadata AqualiMetadata =  new PokemonMetadata(133, "Aquali", 186, 168, 260);
+        PokemonMetadata aqualiMetadata =  new PokemonMetadata(133, "Aquali", 186, 168, 260);
 
         pokemonMap.put(0, bulbizarMetadata);
-        pokemonMap.put(133, AqualiMetadata);
+        pokemonMap.put(133, aqualiMetadata);
     }
     
 }
