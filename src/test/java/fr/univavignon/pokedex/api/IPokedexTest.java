@@ -1,7 +1,6 @@
 package fr.univavignon.pokedex.api;
 
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;

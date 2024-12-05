@@ -6,13 +6,11 @@ import java.util.List;
 /**
  * IPokedex interface. An IPokedex aims to store all information about
  * captured pokemon, as their default metadata as well.
- * 
  * @author fv
  */
 public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	/**
 	 * Returns the number of pokemon this pokedex contains.
-	 * 
 	 * @return Number of pokemon in this pokedex.
 	 */
 	int size();
@@ -32,14 +30,12 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	Pokemon getPokemon(int id) throws PokedexException;
 	/**
 	 * Returns an unmodifiable list of all pokemons this pokedex contains.
-	 * 
 	 * @return Unmodifiable list of all pokemons.
 	 */
 	List<Pokemon> getPokemons();
 	/**
 	 * Returns an unmodifiable list of all pokemons this pokedex contains.
 	 * The list view will be sorted using the given <tt>order</tt>.
-	 * 
 	 * @param order Comparator instance used for sorting the created view.
 	 * @return Sorted unmodifiable list of all pokemons.
 	 */

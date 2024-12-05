@@ -3,8 +3,7 @@ package fr.univavignon.pokedex.api;
 import java.util.Comparator;
 
 /**
- * Enumeration of pokemon comparator.
- * 
+ * Enumeration of pokemon comparator. 
  * @author fv
  */
 public enum PokemonComparators implements Comparator<Pokemon> {
@@ -24,8 +23,7 @@ public enum PokemonComparators implements Comparator<Pokemon> {
 	private final Comparator<Pokemon> delegate;
 
 	/**
-	 * Default constructor.
-	 * 
+	 * Default constructor. 
 	 * @param delegate Delegate comparator instance.
 	 */
 	private PokemonComparators(final Comparator<Pokemon> delegate) {

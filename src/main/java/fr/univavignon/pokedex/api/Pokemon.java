@@ -2,7 +2,6 @@ package fr.univavignon.pokedex.api;
 
 /**
  * Pokemon POJO.
- * 
  * @author fv
  */
 public final class Pokemon extends PokemonMetadata {
