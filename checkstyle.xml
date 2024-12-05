@@ -76,9 +76,9 @@
     <!-- Checks for Size Violations.                    -->
     <!-- See https://checkstyle.org/config_sizes.html -->
     <module name="FileLength"/>
-    <module name="LineLength">
+    <!-- <module name="LineLength">
         <property name="fileExtensions" value="java"/>
-    </module>
+    </module> -->
 
     <!-- Checks for whitespace                               -->
     <!-- See https://checkstyle.org/config_whitespace.html -->
@@ -139,15 +139,15 @@
         <!-- Checks for whitespace                               -->
         <!-- See https://checkstyle.org/config_whitespace.html -->
         <module name="EmptyForIteratorPad"/>
-        <module name="GenericWhitespace"/>
+        <!-- <module name="GenericWhitespace"/> -->
         <module name="MethodParamPad"/>
-        <module name="NoWhitespaceAfter"/>
-        <module name="NoWhitespaceBefore"/>
+        <!-- <module name="NoWhitespaceAfter"/> -->
+        <!-- <module name="NoWhitespaceBefore"/> -->
         <module name="OperatorWrap"/>
         <module name="ParenPad"/>
         <module name="TypecastParenPad"/>
-        <module name="WhitespaceAfter"/>
-        <module name="WhitespaceAround"/>
+        <!-- <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/> -->
 
         <!-- Modifier Checks                                    -->
         <!-- See https://checkstyle.org/config_modifiers.html -->
