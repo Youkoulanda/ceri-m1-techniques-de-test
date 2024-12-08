@@ -35,7 +35,7 @@ jobs:
       # Exécution de l'analyse Checkstyle
       - run:
           name: Checkstyle Analysis
-          command: cd ceri-m1-techniques-de-test  && mvn checkstyle:checkstyle
+          command: mvn checkstyle:check
 
 # Orchestration des jobs dans le workflow
 workflows:

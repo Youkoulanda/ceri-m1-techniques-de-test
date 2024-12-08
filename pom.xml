@@ -18,7 +18,6 @@
 
 	<build>
 		<plugins>
-			<!-- Plugin pour la création d'un JAR ombré (shade) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -58,10 +57,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.2.1</version>
 				<configuration>
 					<configLocation>google_checks.xml</configLocation>
-					<encoding>UTF-8</encoding>
 					<failOnViolation>true</failOnViolation>
 					<outputFile>target/checkstyle-result.xml</outputFile>
 				</configuration>
@@ -93,13 +91,12 @@
 			<version>4.10.0</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- Dépendance pour Checkstyle (version 8.45) -->
 		<dependency>
-			<groupId>com.puppycrawl.tools</groupId>
-			<artifactId>checkstyle</artifactId>
-			<version>8.45</version>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>30.1-jre</version>
 		</dependency>
+
 	</dependencies>
 
 </project>
