@@ -6,10 +6,10 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/openjdk:8.0  # Utilisation de l'image Docker OpenJDK 8
+      - image: cimg/openjdk:8.0
 
     steps:
-      - checkout  # Récupération du code source
+      - checkout
 
       # Compilation sans exécuter les tests
       - run:
@@ -35,6 +35,28 @@ jobs:
       - run:
           name: Checkstyle Analysis
           command: mvn checkstyle:check
+
+      # Compilation du projet et génération de la Javadoc
+      - run:
+          name: Build and Generate Javadoc
+          command: mvn clean javadoc:javadoc
+
+      # Publier la Javadoc sur GitHub Pages
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            mkdir -p target/github-pages
+            cp -r target/site/apidocs/* target/github-pages/
+            git config --global user.email "oumayma.bousaid@gmail.com"
+            git config --global user.name "Oumayma-Bousaid"
+            git clone git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
+            cd gh-pages
+            git checkout -b gh-pages || git checkout gh-pages
+            cp -r ../target/github-pages/* .
+            git add .
+            git commit -m "Update Javadoc"
+            git push origin gh-pages --force
+
 
 # Orchestration des jobs dans le workflow
 workflows:

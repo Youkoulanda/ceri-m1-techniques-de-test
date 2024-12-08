@@ -3,11 +3,20 @@ package fr.univavignon.pokedex.api;
 /**
  * Concrete implementation of the IPokemonTrainerFactory interface.
  * Responsible for creating PokemonTrainer instances.
+ * This class ensures that the necessary dependencies for creating a PokemonTrainer (such as the metadata provider and Pokemon factory) are provided and validated.
  */
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
 
     private final IPokemonMetadataProvider metaProvider;
     private final IPokemonFactory pokemonFactory;
+
+    /**
+     * Constructs a PokemonTrainerFactory instance with the provided dependencies.
+     *
+     * @param metaProvider   The metadata provider for the Pokemon.
+     * @param pokemonFactory The factory to create Pokemon instances.
+     * @throws IllegalArgumentException if either parameter is null.
+     */
 
     public PokemonTrainerFactory(IPokemonMetadataProvider metaProvider, IPokemonFactory pokemonFactory) {
         if (metaProvider == null || pokemonFactory == null) {
