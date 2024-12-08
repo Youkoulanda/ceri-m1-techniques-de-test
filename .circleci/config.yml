@@ -49,13 +49,14 @@ jobs:
             cp -r target/site/apidocs/* target/github-pages/
             git config --global user.email "oumayma.bousaid@gmail.com"
             git config --global user.name "Oumayma-Bousaid"
-            git clone git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
+            git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
             cd gh-pages
             git checkout -b gh-pages || git checkout gh-pages
             cp -r ../target/github-pages/* .
             git add .
             git commit -m "Update Javadoc"
             git push origin gh-pages --force
+
 
 
 # Orchestration des jobs dans le workflow
