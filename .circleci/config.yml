@@ -36,6 +36,10 @@ jobs:
           name: Checkstyle Analysis
           command: mvn checkstyle:check
 
+      - add_ssh_keys:
+        fingerprints:
+         -"58:d8:0e:a9:1c:82:b3:53:17:0a:7e:81:c1:1a:ae:f2"
+
       # Génération de la Javadoc
       - run:
           name: Generate Javadoc
