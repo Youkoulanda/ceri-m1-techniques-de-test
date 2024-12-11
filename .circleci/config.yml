@@ -82,10 +82,9 @@ jobs:
             git push origin gh-pages --force
 
 workflows:
-  version: 2
-  build:
+  build-and-upload:
     jobs:
-      - build:
+      - build-and-test:
           filters:
             branches:
               only:
