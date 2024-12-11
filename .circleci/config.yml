@@ -39,7 +39,7 @@ jobs:
       # Ajouter les clés SSH
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:IxCVFtGePdN53comdG2nQdpKK1GcsmhLsrr4kd5OWBA "
+            - "SHA256:/Bq0fKHvAXKoEqKoFMUqXnrsYDGj9SEXrhmQv1htK3M"
 
       # Configuration SSH et Git
       - run:
