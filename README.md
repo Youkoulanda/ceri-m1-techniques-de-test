@@ -6,6 +6,7 @@ CircleCI : [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Oumayma-Bous
 codecov : [![codecov](https://codecov.io/github/Oumayma-Bousaid/ceri-m1-techniques-de-test/graph/badge.svg?token=4IGQXO1YWH)](https://codecov.io/github/Oumayma-Bousaid/ceri-m1-techniques-de-test)
 Checkstyle : ![Checkstyle Badge](https://github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test/raw/master/target/checkstyle-result.svg)
 
+
 ## Langages Utilisés
 
 - Java : Le projet utilise Java pour le développement des fonctionnalités et la gestion de la logique métier. Java est un langage robuste et performant adapté à la création d'applications scalables et maintenables.
