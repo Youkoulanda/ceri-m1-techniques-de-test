@@ -31,11 +31,6 @@ jobs:
           name: Checkstyle Analysis
           command: mvn checkstyle:check
 
-      # Ajouter les clés SSH
-      - add_ssh_keys:
-        # Vous pouvez également laisser CircleCI gérer la clé automatiquement si elle est correctement ajoutée dans votre projet
-        # Les clés SSH associées à votre projet doivent être disponibles sans spécifier de fingerprint
-
       # Génération de la Javadoc
       - run:
           name: Generate Javadoc
