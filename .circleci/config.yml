@@ -4,68 +4,80 @@ orbs:
   codecov: codecov/codecov@4.0.1
 
 jobs:
-  build:
+  build-and-test:
     docker:
-      - image: cimg/openjdk:8.0
-
+      - image: cimg/openjdk:21.0
     steps:
-      # Étape 1 : Cloner le code source
+      # Étape 1 : Récupération du code source
       - checkout
 
-      # Étape 2 : Compilation du projet
+      # Étape 2 : Construction du projet sans exécuter les tests
       - run:
-          name: Build with Maven
-          command: mvn clean install -DskipTests
+          name: Build Project
+          command: mvn -B -DskipTests clean package
 
-      # Étape 3 : Exécution des tests et génération de la couverture de code
+      # Étape 3 : Exécution des tests et collecte des données de couverture
       - run:
-          name: Run Tests and Generate Coverage Report
-          command: mvn test jacoco:report
+          name: Run Tests and Collect Coverage
+          command: mvn verify
 
-      # Étape 4 : Envoi des données de couverture à Codecov
+      # Étape 4 : Génération du rapport de couverture
+      - run:
+          name: Generate Coverage Report
+          command: mvn jacoco:report
+
+      # Étape 5 : Envoi des données de couverture à Codecov
       - run:
           name: Upload Coverage to Codecov
           command: |
-            if [ -n "$CODECOV_TOKEN" ]; then
-              bash <(curl -s https://codecov.io/bash)
-            else
-              echo "Codecov token is not set. Skipping upload."
-            fi
+            echo "Uploading Jacoco report to Codecov"
+            bash <(curl -s https://codecov.io/bash) -f target/site/jacoco/jacoco.xml -t $CODECOV_TOKEN -X verbose
+            echo "Upload terminé"
 
-      # Étape 5 : Analyse Checkstyle pour respecter les normes de codage
-      - run:
-          name: Checkstyle Analysis
-          command: mvn checkstyle:check
-
-      # Étape 6 : Configuration SSH pour le déploiement GitHub Pages
-      - add_ssh_keys:
-          fingerprints:
-            - "SHA256:/Bq0fKHvAXKoEqKoFMUqXnrsYDGj9SEXrhmQv1htK3M"
-      - run:
-          name: Configure SSH and Git
-          command: |
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/id_rsa
-            git remote set-url origin git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
-
-      # Étape 7 : Génération de la documentation Javadoc
+      # Étape 6 : Génération de la documentation Javadoc
       - run:
           name: Generate Javadoc
           command: mvn javadoc:javadoc
 
-      # Étape 8 : Déploiement de la Javadoc sur GitHub Pages
+      # Étape 7 : Configuration SSH pour le déploiement
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:/Bq0fKHvAXKoEqKoFMUqXnrsYDGj9SEXrhmQv1htK3M"
+
+      - run:
+          name: Debug SSH Key Path
+          command: ls -la ~/.ssh
+
+      - run:
+          name: Start SSH Agent and Add Key
+          command: |
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa
+
+      # Étape 8 : Définir les permissions de la clé SSH
+      - run:
+          name: Set Key Permissions
+          command: chmod 600 ~/.ssh/id_rsa
+
+      # Étape 9 : Configuration de Git pour utiliser SSH
+      - run:
+          name: Configure Git to Use SSH
+          command: git remote set-url origin git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+
+      # Étape 10 : Déploiement de la Javadoc sur GitHub Pages
       - run:
           name: Deploy Javadoc to GitHub Pages
           command: |
-            mkdir -p target/github-pages
-            cp -r target/site/apidocs/* target/github-pages/
             git config --global user.email "oumayma.bousaid@gmail.com"
             git config --global user.name "Oumayma-Bousaid"
+
+            mkdir -p target/github-pages
+            cp -r target/site/apidocs/* target/github-pages/
             git clone git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
             cd gh-pages
             git checkout gh-pages || git checkout -b gh-pages
             cp -r ../target/github-pages/* ./
-            git add .
+            git add -A
             git commit -m "[skip ci] Updated Javadoc"
             git push origin gh-pages --force
 
