@@ -11,15 +11,10 @@ jobs:
     steps:
       - checkout
 
-      # Compilation sans exécuter les tests
-      - run:
-          name: Build (without tests)
-          command: mvn -B -DskipTests clean package
-
-      # Compilation complète avec Maven
+      # Compilation avec Maven
       - run:
           name: Build with Maven
-          command: mvn clean install
+          command: mvn clean install -DskipTests
 
       # Exécution des tests et génération du rapport de couverture
       - run:
@@ -29,19 +24,24 @@ jobs:
       # Envoi du rapport de couverture à Codecov
       - run:
           name: Upload Coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash)
+          command: |
+            if [ -n "$CODECOV_TOKEN" ]; then
+              bash <(curl -s https://codecov.io/bash)
+            else
+              echo "Codecov token is not set. Skipping upload."
+            fi
 
-      # Exécution de l'analyse Checkstyle
+      # Analyse Checkstyle
       - run:
           name: Checkstyle Analysis
           command: mvn checkstyle:check
 
-      # Compilation du projet et génération de la Javadoc
+      # Génération de la Javadoc
       - run:
-          name: Build and Generate Javadoc
-          command: mvn clean javadoc:javadoc
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
 
-      # Publier la Javadoc sur GitHub Pages
+      # Déploiement de la Javadoc sur GitHub Pages
       - run:
           name: Deploy Javadoc to GitHub Pages
           command: |
@@ -49,17 +49,15 @@ jobs:
             cp -r target/site/apidocs/* target/github-pages/
             git config --global user.email "oumayma.bousaid@gmail.com"
             git config --global user.name "Oumayma-Bousaid"
-            git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
+            git clone git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
             cd gh-pages
-            git checkout -b gh-pages || git checkout gh-pages
+            git checkout gh-pages || git checkout -b gh-pages
             cp -r ../target/github-pages/* .
             git add .
             git commit -m "Update Javadoc"
             git push origin gh-pages --force
 
 
-
-# Orchestration des jobs dans le workflow
 workflows:
   version: 2
   build:
