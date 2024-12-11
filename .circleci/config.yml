@@ -52,7 +52,7 @@ jobs:
             git clone git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
             cd gh-pages
             git checkout gh-pages || git checkout -b gh-pages
-            cp -r ../target/site/apidocs/* .
+            cp -r ../target/site/apidocs/* ./
             git add .
             git commit -m "Update Javadoc"
             git push origin gh-pages --force
