@@ -1,3 +1,8 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 jobs:
   build:
     docker:
@@ -31,6 +36,25 @@ jobs:
           name: Checkstyle Analysis
           command: mvn checkstyle:check
 
+      # Ajouter les clés SSH
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:IxCVFtGePdN53comdG2nQdpKK1GcsmhLsrr4kd5OWBA "
+
+      # Configuration SSH et Git
+      - run:
+          name: Debug SSH Key Path
+          command: ls -la ~/.ssh
+      - run:
+          name: Start SSH Agent
+          command: eval "$(ssh-agent -s)"
+      - run:
+          name: Add SSH Key
+          command: ssh-add ~/.ssh/id_rsa
+      - run:
+          name: Configure Git to Use SSH
+          command: git remote set-url origin git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+
       # Génération de la Javadoc
       - run:
           name: Generate Javadoc
@@ -49,7 +73,7 @@ jobs:
             git checkout gh-pages || git checkout -b gh-pages
             cp -r ../target/site/apidocs/* ./
             git add .
-            git commit -m "Update Javadoc"
+            git commit -m "[skip ci] Updated Javadoc"
             git push origin gh-pages --force
 
 workflows:
