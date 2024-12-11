@@ -4,7 +4,7 @@ Oumayma BOUSAID ( M1 ILSEN Classsique )
 
 CircleCI : [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Oumayma-Bousaid/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Oumayma-Bousaid/ceri-m1-techniques-de-test/tree/master)
 codecov : [![codecov](https://codecov.io/github/Oumayma-Bousaid/ceri-m1-techniques-de-test/graph/badge.svg?token=4IGQXO1YWH)](https://codecov.io/github/Oumayma-Bousaid/ceri-m1-techniques-de-test)
-Checkstyle : ![Checkstyle Badge](https://github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test/raw/master/badges/checkstyle-results.svg)
+Checkstyle : ![Checkstyle Badge](https://github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test/tree/master/badges/checkstyle-results.svg)
 
 
 ## Langages Utilisés
