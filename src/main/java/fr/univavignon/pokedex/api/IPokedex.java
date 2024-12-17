@@ -31,7 +31,7 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	 * Locates the pokemon identified by the given <code>id</code>.
 	 * 
 	 * @param id Unique pokedex relative identifier.
-	 * @return Pokemon denoted by the given identifier.
+	 * @return Pokémon denoted by the given identifier.
 	 * @throws PokedexException If the given <code>index</code> is not valid.
 	 */
 	Pokemon getPokemon(int id) throws PokedexException;
