@@ -8,3 +8,4 @@ Dans notre bonté nous vous offrons même, et gratuitement, le XML qui correspon
 	<artifactId>commons-collections4</artifactId>
 	<version>4.0</version>
 </dependency>
+
