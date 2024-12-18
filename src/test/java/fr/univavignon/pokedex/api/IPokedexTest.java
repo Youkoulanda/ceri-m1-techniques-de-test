@@ -14,12 +14,20 @@ public class IPokedexTest {
     private Pokemon aquali;
     private ArrayList<Pokemon> pokemons;
 
+    /**
+     * Initialization of the objects required for testing.
+     * This method is executed before each test to prepare the testing environment.
+     */
     @Before
     public void init() {
+        // Initialize the Pokedex instance with the necessary providers
         pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
+        // Create two Pokémon objects for testing (Bulbizarre and Aquali)
         bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
         aquali = new Pokemon(133, "Aquali", 186, 186, 260, 2729, 202, 5000, 4, 100.0);
+
+        // Add Pokémon to a list and to the Pokedex
         pokemons = new ArrayList<>();
         pokemons.add(bulbizarre);
         pokemons.add(aquali);
@@ -27,13 +35,19 @@ public class IPokedexTest {
         pokedex.addPokemon(aquali);
     }
 
-    // Checking that the Pokedex contains the two Pokémon
+    /**
+     * Test adding Pokémon to the Pokedex.
+     * This test verifies that adding two Pokémon to the Pokedex increases its size to 2.
+     */
     @Test
     public void testAddPokemon() {
         assertEquals(2, pokedex.size());
     }
 
-    // Checking that an exception is thrown when adding a null Pokémon
+    /**
+     * Test adding a null Pokémon to the Pokedex.
+     * This test verifies that an IllegalArgumentException is thrown when a null Pokémon is added.
+     */
     @Test
     public void testAddNullPokemon() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -41,14 +55,20 @@ public class IPokedexTest {
         });
     }
 
-    // Checking correct retrieval of a Pokémon by its index
+    /**
+     * Test retrieving a Pokémon by its index.
+     * This test verifies that the Pokémon retrieved is the one added to the Pokedex at index 0.
+     */
     @Test
     public void testGetPokemon() throws PokedexException {
         Pokemon retrievedPokemon = pokedex.getPokemon(0);
         assertEquals(bulbizarre, retrievedPokemon);
     }
 
-    // Checking that an exception is thrown for an invalid index
+    /**
+     * Test retrieving a Pokémon with an invalid index.
+     * This test verifies that a PokedexException is thrown when attempting to retrieve a Pokémon with an invalid index.
+     */
     @Test
     public void testGetPokemonInvalidId() {
         assertThrows(PokedexException.class, () -> {
@@ -56,7 +76,10 @@ public class IPokedexTest {
         });
     }
 
-    // Checking that all Pokémon are correctly retrieved
+    /**
+     * Test retrieving all Pokémon.
+     * This test verifies that all Pokémon added to the Pokedex can be retrieved in a list.
+     */
     @Test
     public void testGetPokemons() {
         List<Pokemon> allPokemons = pokedex.getPokemons();
@@ -65,7 +88,10 @@ public class IPokedexTest {
         assertTrue(allPokemons.contains(aquali));
     }
 
-    // Retrieving Pokémon sorted and checking sorting by index
+    /**
+     * Test retrieving Pokémon sorted by index.
+     * This test verifies that Pokémon are correctly sorted by their index when using a comparator.
+     */
     @Test
     public void testGetPokemonsWithComparatorByIndex() {
         List<Pokemon> ResultPokemons = pokedex.getPokemons(PokemonComparators.INDEX);
@@ -73,7 +99,10 @@ public class IPokedexTest {
         assertEquals(aquali, ResultPokemons.get(1));
     }
 
-    // Retrieving Pokémon sorted and checking sorting by CP
+    /**
+     * Test retrieving Pokémon sorted by CP (combat points).
+     * This test verifies that Pokémon are correctly sorted by their CP when using a comparator.
+     */
     @Test
     public void testGetPokemonsWithComparatorByCP() {
         List<Pokemon> PokemonsResult = pokedex.getPokemons(PokemonComparators.CP);
@@ -81,7 +110,11 @@ public class IPokedexTest {
         assertEquals(aquali, PokemonsResult.get(1));
     }
 
-    // Checking that the createPokemon method throws an unsupported exception
+    /**
+     * Test the createPokemon method.
+     * This test verifies that an UnsupportedOperationException is thrown when attempting to use the createPokemon method,
+     * which is not supported in the Pokedex.
+     */
     @Test
     public void testUnsupportedCreatePokemon() {
         assertThrows(UnsupportedOperationException.class, () -> {
@@ -89,7 +122,11 @@ public class IPokedexTest {
         });
     }
 
-    // Checking that the getPokemonMetadata method throws an unsupported exception
+    /**
+     * Test the getPokemonMetadata method.
+     * This test verifies that an UnsupportedOperationException is thrown when attempting to use the getPokemonMetadata method,
+     * which is not supported in the Pokedex.
+     */
     @Test
     public void testUnsupportedGetPokemonMetadata() {
         assertThrows(UnsupportedOperationException.class, () -> {

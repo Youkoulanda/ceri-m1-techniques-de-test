@@ -104,8 +104,15 @@
 			<version>4.10.0</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Dépendance pour optimisée pour les environnements JRE (version 30.1) -->
 
+		<!-- Dépendance Maven pour Apache Commons Collections 4.4 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<!-- Dépendance pour optimisée pour les environnements JRE (version 30.1) -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
