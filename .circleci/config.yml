@@ -42,7 +42,7 @@ jobs:
       # Étape 7 : Configuration SSH pour le déploiement
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:/Bq0fKHvAXKoEqKoFMUqXnrsYDGj9SEXrhmQv1htK3M"
+            - "SHA256:/qv90o99AfbVFRYZB1igbcmvpb4OlFvZBStVfx4uGvao"
 
       - run:
           name: Debug SSH Key Path
