@@ -72,15 +72,19 @@ jobs:
             # Configuration de l'utilisateur Git
             git config --global user.email "oumayma.bousaid@gmail.com"
             git config --global user.name "Oumayma-Bousaid"
-        
-            git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/repository.git gh-pages
-            rm -rf gh-pages/*
-            cp -r target/site/apidocs/* gh-pages/
+            
+            # Clonage de la branche gh-pages via SSH
+            git clone --branch gh-pages git@github.com:Oumayma-Bousaid/repository.git gh-pages
+            rm -rf gh-pages/*  # Supprimer les fichiers précédents sur gh-pages
+            cp -r target/site/apidocs/* gh-pages/  # Copier les fichiers Javadoc dans gh-pages
             cd gh-pages
+            
+            # Ajouter les fichiers, commettre et pousser les changements
             git add .
             git commit -m "Update Javadoc [skip ci]"
-            git push
-  
+            git push origin gh-pages
+
+
 
 workflows:
   build-and-upload:
