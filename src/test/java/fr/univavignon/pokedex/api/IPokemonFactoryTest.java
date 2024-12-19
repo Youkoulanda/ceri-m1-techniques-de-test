@@ -14,35 +14,32 @@ public class IPokemonFactoryTest {
     private Pokedex pokedex;
     private PokemonFactory pokemonFactory;
 
-    private Pokemon bulbizarre;
-    private Pokemon aquali;
-    private List<Pokemon> pokemons;
-
     /**
      * Initialization of objects needed for the tests.
      * This method is executed before each test.
      */
     @Before
     public void init() {
-
         IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
 
-        pokemonFactory = new PokemonFactory(metadataProvider);
-        pokedex = new Pokedex(metadataProvider, pokemonFactory);
+        // Création locale de la factory et du pokédex
+        PokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
-        // Creating Pokemon objects for testing
-        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
-        aquali = new Pokemon(133, "Aquali", 186, 186, 260, 2729, 202, 5000, 4, 100.0);
+        // Création des objets Pokémon pour les tests
+        Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
+        Pokemon aquali = new Pokemon(133, "Aquali", 186, 186, 260, 2729, 202, 5000, 4, 100.0);
 
-        // Adding Pokémon to the list and Pokedex
-        pokemons = new ArrayList<>();
+        // Ajout des Pokémon à la liste et au Pokédex
+        List<Pokemon> pokemons = new ArrayList<>();
         pokemons.add(bulbizarre);
         pokemons.add(aquali);
 
         pokedex.addPokemon(bulbizarre);
         pokedex.addPokemon(aquali);
 
-        rocketPokemonFactory = new RocketPokemonFactory(); // Creating the Pokémon factory
+        // Création locale de la factory Rocket
+        RocketPokemonFactory rocketPokemonFactory = new RocketPokemonFactory();
     }
 
     /**
@@ -78,7 +75,7 @@ public class IPokemonFactoryTest {
      */
     @Test
     public void testCreatePokemonWithUnknownIndex() {
-        int index = 99; // Unknown index
+        int index = 99;
         int cp = 500;
         int hp = 50;
         int dust = 3000;
@@ -89,10 +86,10 @@ public class IPokemonFactoryTest {
 
         // Verifying the values of the created Pokémon
         assertNotNull(pokemon);
-        assertEquals("MISSINGNO", pokemon.getName()); // The name should be "MISSINGNO" for an unknown index
-        assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 100); // Verify stats are within the expected range
-        assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 100); // Verify defense stats
-        assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 100); // Verify stamina stats
+        assertEquals("MISSINGNO", pokemon.getName());
+        assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 100);
+        assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 100);
+        assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 100);
         assertEquals(cp, pokemon.getCp());
         assertEquals(hp, pokemon.getHp());
         assertEquals(dust, pokemon.getDust());
@@ -136,6 +133,6 @@ public class IPokemonFactoryTest {
         int stat = RocketPokemonFactory.generateRandomStat();
 
         // Verify that the statistic is between 0 and 100
-        assertTrue(stat >= 0 && stat <= 100); // The statistic must be between 0 and 100
+        assertTrue(stat >= 0 && stat <= 100);
     }
 }

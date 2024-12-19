@@ -5,67 +5,58 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Unit tests for the IPokemonTrainerFactory implementation.
- * This class ensures the correct behavior of the PokemonMetadataProvider when retrieving Pokémon metadata.
+ * Unit tests for the PokemonTrainerFactory class.
+ * Ensures proper creation of PokemonTrainer instances and validates exceptions for invalid inputs.
  */
 public class IPokemonTrainerFactoryTest {
 
-    private IPokemonMetadataProvider pokemonMetadataProvider;
+    private PokemonTrainerFactory trainerFactory;
+    private PokemonMetadataProvider metadataProvider;
+    private PokemonFactory pokemonFactory;
+    private PokedexFactory pokedexFactory;
 
-    private PokemonMetadata aquali;
-    private PokemonMetadata bulbizarre;
-
-    /**
-     * Initializes the test environment before each test.
-     * Sets up the metadata provider and predefined metadata objects for validation.
-     */
     @Before
     public void init() {
-        pokemonMetadataProvider = new PokemonMetadataProvider();
-
-        // Create metadata objects for Bulbizarre and Aquali to use in assertions
-        bulbizarre = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-        aquali = new PokemonMetadata(133, "Aquali", 186, 186, 260);
+        // Initialize dependencies for the PokemonTrainerFactory
+        metadataProvider = new PokemonMetadataProvider();
+        pokemonFactory = new PokemonFactory(metadataProvider);
+        pokedexFactory = new PokedexFactory();
+        trainerFactory = new PokemonTrainerFactory(metadataProvider, pokemonFactory);
     }
 
-    /**
-     * Tests the getPokemonMetadata method to ensure it returns correct metadata for valid Pokémon indices
-     * and throws appropriate exceptions for invalid indices.
-     */
     @Test
-    public void testGetPokemonMetadata() throws PokedexException {
-        // Test case: Valid Pokémon index (0: Bulbizarre)
-        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
-        Assert.assertEquals(bulbizarre.getIndex(), metadata.getIndex());
-        Assert.assertEquals(bulbizarre.getName(), metadata.getName());
-        Assert.assertEquals(bulbizarre.getAttack(), metadata.getAttack());
-        Assert.assertEquals(bulbizarre.getDefense(), metadata.getDefense());
-        Assert.assertEquals(bulbizarre.getStamina(), metadata.getStamina());
+    public void testCreateTrainerValid() {
+        PokemonTrainer trainer = trainerFactory.createTrainer("Bulbizarre", Team.VALOR, pokedexFactory);
 
-        // Test case: Valid Pokémon index (133: Aquali)
-        metadata = pokemonMetadataProvider.getPokemonMetadata(133);
-        Assert.assertEquals(aquali.getIndex(), metadata.getIndex());
-        Assert.assertEquals(aquali.getName(), metadata.getName());
-        Assert.assertEquals(aquali.getAttack(), metadata.getAttack());
-        Assert.assertEquals(aquali.getDefense(), metadata.getDefense());
-        Assert.assertEquals(aquali.getStamina(), metadata.getStamina());
+        // Validate trainer properties
+        Assert.assertNotNull("Trainer should not be null", trainer);
+        Assert.assertEquals("Trainer name should be 'Bulbizarre'", "Bulbizarre", trainer.getName());
+        Assert.assertEquals("Trainer team should be 'VALOR'", Team.VALOR, trainer.getTeam());
+        Assert.assertNotNull("Pokedex should not be null", trainer.getPokedex());
+        Assert.assertEquals("Pokedex should be empty", 0, trainer.getPokedex().size());
+    }
 
-        // Test case: Invalid index (negative value)
-        try {
-            pokemonMetadataProvider.getPokemonMetadata(-189);
-            Assert.fail("Expected exception");
-        } catch (PokedexException e) {
-            // Verify that the exception message matches the expected error
-            Assert.assertEquals("Pokemon not found", e.getMessage());
-        }
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithNullName() {
+        // Test with null name
+        trainerFactory.createTrainer(null, Team.VALOR, pokedexFactory);
+    }
 
-        // Test case: Invalid index (too large)
-        try {
-            pokemonMetadataProvider.getPokemonMetadata(313);
-            Assert.fail("Expected exception");
-        } catch (PokedexException e) {
-            // Verify that the exception message matches the expected error
-            Assert.assertEquals("Pokemon not found", e.getMessage());
-        }
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithEmptyName() {
+        // Test with empty name
+        trainerFactory.createTrainer("", Team.VALOR, pokedexFactory);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithNullTeam() {
+        // Test with null team
+        trainerFactory.createTrainer("Bulbizarre", null, pokedexFactory);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateTrainerWithNullPokedexFactory() {
+        // Test with null pokedex factory
+        trainerFactory.createTrainer("Bulbizarre", Team.VALOR, null);
     }
 }
