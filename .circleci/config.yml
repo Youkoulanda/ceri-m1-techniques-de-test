@@ -94,15 +94,14 @@ jobs:
               
               mkdir -p target/github-pages
               cp -r target/site/apidocs/* target/github-pages/
-              git clone --branch gh-pages git@github.com:OumaYma199/ceri-m1-techniques-de-test.git gh-pages || \  
-              git clone --branch gh-pages git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
-        
+              git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
+              
               cd gh-pages
               git checkout gh-pages || git checkout -b gh-pages
               cp -r ../target/github-pages/* ./
               git add -A
               git commit -m "Updated Javadoc"
-              git push origin gh-pages --force
+              git push https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
 
 workflows:
   build-and-upload:
