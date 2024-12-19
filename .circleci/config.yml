@@ -75,15 +75,15 @@ jobs:
             
             # Clonage de la branche gh-pages via SSH
             git clone --branch gh-pages git@github.com:Oumayma-Bousaid/repository.git gh-pages
-            rm -rf gh-pages/*  # Supprimer les fichiers précédents sur gh-pages
-            cp -r target/site/apidocs/* gh-pages/  # Copier les fichiers Javadoc dans gh-pages
+            
+            rm -rf gh-pages/*  
+            cp -r target/site/apidocs/* gh-pages/  
             cd gh-pages
             
             # Ajouter les fichiers, commettre et pousser les changements
             git add .
             git commit -m "Update Javadoc [skip ci]"
-            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${Deploykey}.git gh-pages --force
-
+            git push https://$TOKEN_JAVADOC@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages --force
 
 workflows:
   build-and-upload:
