@@ -23,8 +23,8 @@ public class IPokemonFactoryTest {
         IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
 
         // Création locale de la factory et du pokédex
-        PokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
-        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+        pokemonFactory = new PokemonFactory(metadataProvider);
+        pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
         // Création des objets Pokémon pour les tests
         Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
@@ -39,7 +39,7 @@ public class IPokemonFactoryTest {
         pokedex.addPokemon(aquali);
 
         // Création locale de la factory Rocket
-        RocketPokemonFactory rocketPokemonFactory = new RocketPokemonFactory();
+        rocketPokemonFactory = new RocketPokemonFactory();
     }
 
     /**
@@ -102,7 +102,7 @@ public class IPokemonFactoryTest {
      */
     @Test
     public void testCreateAshsPikachu() {
-        int index = -1; // Index for Ash's Pikachu
+        int index = -1;
         int cp = 1000;
         int hp = 100;
         int dust = 5000;
@@ -113,7 +113,7 @@ public class IPokemonFactoryTest {
 
         // Verifying the values returned by the Pokémon
         assertNotNull(pokemon);
-        assertEquals("Ash's Pikachu", pokemon.getName()); // The name should be "Ash's Pikachu"
+        assertEquals("Ash's Pikachu", pokemon.getName());
         assertEquals(1000, pokemon.getAttack());
         assertEquals(1000, pokemon.getDefense());
         assertEquals(1000, pokemon.getStamina());
