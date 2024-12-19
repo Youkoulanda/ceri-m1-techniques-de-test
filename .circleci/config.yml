@@ -82,8 +82,7 @@ jobs:
             # Ajouter les fichiers, commettre et pousser les changements
             git add .
             git commit -m "Update Javadoc [skip ci]"
-            git push origin gh-pages
-
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${Deploykey}.git gh-pages --force
 
 
 workflows:
