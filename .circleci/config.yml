@@ -74,7 +74,7 @@ jobs:
             git config --global user.name "Oumayma-Bousaid"
             
             # Clonage de la branche gh-pages via SSH
-            git clone --branch gh-pages git@github.com:Oumayma-Bousaid/repository.git gh-pages
+            git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
             
             rm -rf gh-pages/*  
             cp -r target/site/apidocs/* gh-pages/  
