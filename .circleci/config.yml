@@ -59,28 +59,50 @@ jobs:
           name: Set Key Permissions
           command: chmod 600 ~/.ssh/id_rsa
 
-      # Étape 9 : Configuration de Git pour utiliser SSH
-      - run:
-          name: Configure Git to Use SSH
-          command: git remote set-url origin git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+  # Étape 9 : Configuration de Git pour utiliser SSH
+  - run:
+      name: Configure Git to Use SSH
+      command: git remote set-url origin git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
 
-      # Étape 10 : Déploiement de la Javadoc sur GitHub Pages
-      - run:
-          name: Deploy Javadoc to GitHub Pages
-          command: |
-            git config --global user.email "oumayma.bousaid@gmail.com"
-            git config --global user.name "Oumayma-Bousaid"
-            
-            mkdir -p target/github-pages
-            cp -r target/site/apidocs/* target/github-pages/
-            git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
-            
-            cd gh-pages
-            git checkout gh-pages || git checkout -b gh-pages
-            cp -r ../target/github-pages/* ./
-            git add -A
-            git commit -m "Updated Javadoc"
-            git push https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
+  # Étape 10 : Déploiement de la Javadoc sur GitHub Pages
+  - run:
+      name: Deploy Javadoc to GitHub Pages
+      command: |
+        git config --global user.email "oumayma.bousaid@gmail.com"
+        git config --global user.name "Oumayma-Bousaid"
+        
+        mkdir -p target/github-pages
+        cp -r target/site/apidocs/* target/github-pages/
+        git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
+        
+        cd gh-pages
+        git checkout gh-pages || git checkout -b gh-pages
+        cp -r ../target/github-pages/* ./
+        git add -A
+        git commit -m "Updated Javadoc"
+        git push https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages      # Étape 9 : Configuration de Git pour utiliser SSH
+        - run:
+            name: Configure Git to Use SSH
+            command: git remote set-url origin git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+        
+        # Étape 10 : Déploiement de la Javadoc sur GitHub Pages
+        - run:
+            name: Deploy Javadoc to GitHub Pages
+            command: |
+              git config --global user.email "oumayma.bousaid@gmail.com"
+              git config --global user.name "Oumayma-Bousaid"
+              
+              mkdir -p target/github-pages
+              cp -r target/site/apidocs/* target/github-pages/
+              git clone --branch gh-pages git@github.com:OumaYma199/ceri-m1-techniques-de-test.git gh-pages || \  
+              git clone --branch gh-pages git@github.com:${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git gh-pages
+        
+              cd gh-pages
+              git checkout gh-pages || git checkout -b gh-pages
+              cp -r ../target/github-pages/* ./
+              git add -A
+              git commit -m "Updated Javadoc"
+              git push origin gh-pages --force
 
 workflows:
   build-and-upload:
