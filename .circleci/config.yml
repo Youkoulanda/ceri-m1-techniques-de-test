@@ -76,8 +76,8 @@ jobs:
             cp -r target/site/apidocs/* target/github-pages/
             
             # Cloner la branche gh-pages avec SSH
-            git clone --branch gh-pages git@github.com:OumaYma199/${CIRCLE_PROJECT_REPONAME}.git gh-pages || \
-            git clone git@github.com:OumaYma199/${CIRCLE_PROJECT_REPONAME}.git gh-pages
+            git clone --branch gh-pages git@github.com:Oumayma-Bousaid/${CIRCLE_PROJECT_REPONAME}.git gh-pages || \
+            git clone git@github.com:Oumayma-Bousaid/${CIRCLE_PROJECT_REPONAME}.git gh-pages
             
             cd gh-pages
             
