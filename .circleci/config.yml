@@ -38,7 +38,16 @@ jobs:
           command: mvn checkstyle:check
 
       - codecov/upload:  # Upload the coverage report to Codecov
-          file: target/site/jacoco/jacoco.xml  # Specify the correct path to the coverage report  
+          file: target/site/jacoco/jacoco.xml  # Specify the correct path to the coverage report
+
+      - run:
+          name:  Build docs
+          command:  mvn -B javadoc::javadoc 
+      
+      - persist_to_workspace:
+          root: .
+          paths:
+            - target/site/apidocs
 
 
 # Orchestrate jobs using workflows
