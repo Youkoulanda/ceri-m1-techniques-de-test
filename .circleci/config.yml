@@ -42,10 +42,14 @@ jobs:
 
       - run:
           name:  Build docs
-          command:  mvn -B javadoc:javadoc
+          command:  mvn  javadoc:javadoc
+          
+      - run:
+          name: Debug Javadoc Files
+          command: ls -R target/site
       
       - persist_to_workspace:
-          root: target/site
+          root: target/site/
           paths:
             - apidocs
 
