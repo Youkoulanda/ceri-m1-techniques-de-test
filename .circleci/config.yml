@@ -64,12 +64,21 @@ jobs:
           name: Install and configure dependencies
           command: |
             npm install -g --silent gh-pages@2.0.1
-            git config user.email "loudaaghiles64@gmail.com"
-            git config user.name "Aghiles"
-            
+            git config --global user.email "loudaaghiles64@gmail.com"
+            git config --global user.name "Aghiles"
+            echo "am token ${githubpage_Token}"
+            cat ~/.git-credentials
+            git config credentials.helper store
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --dist doc
+          command: |
+            git clone --branch gh-pages  https://$githubpage_Token@github.com/Aghiles-ai/ceri-m1-techniques-de-test gh-pages-branch
+            cd gh-pages-branch
+            cp -R ../doc/* .
+            git add .
+            git commit -m "Update documentation"
+            git push origin gh-pages
+          
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
