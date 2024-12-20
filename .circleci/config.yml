@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name:  Build docs
-          command: mvn -B javadoc:javadoc
+          command:  javadoc -d doc src\*
 
       - run:
           name: Debug Javadoc Files
@@ -51,7 +51,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - target/site/apidocs
+            - doc
 
 
 # Orchestrate jobs using workflows
