@@ -64,6 +64,8 @@ public final class Pokemon extends PokemonMetadata {
 		return hp;
 	}
 
+
+
 	/** Dust getter. **/
 	public int getDust() {
 		return dust;
