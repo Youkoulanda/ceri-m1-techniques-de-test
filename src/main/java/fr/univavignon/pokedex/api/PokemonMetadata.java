@@ -21,6 +21,7 @@ public class PokemonMetadata {
 	/** Pokemon stamina level. **/
 	private final int stamina;
 
+
 	/**
 	 * Default constructor. 
 	 * @param index Pokemon index.
