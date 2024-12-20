@@ -71,8 +71,8 @@ jobs:
       - run:
           name: Deploy docs to gh-pages branch
           command: |
-            git clone --branch gh-pages  https://$githubpage_Token@github.com/Aghiles-ai/ceri-m1-techniques-de-test gh-pages-branch
-            cd gh-pages-branch
+            git clone --branch gh-pages  https://$githubpage_Token@github.com/Aghiles-ai/ceri-m1-techniques-de-test gh-pages
+            cd gh-pages
             cp -R ../doc/* .
             git add .
             git commit -m "Update documentation"
