@@ -1,0 +1,95 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/openjdk:21.0
+    steps:
+      # Étape 1 : Récupération du code source
+      - checkout
+
+      # Étape 2 : Construction du projet sans exécuter les tests
+      - run:
+          name: Build Project
+          command: mvn -B -DskipTests clean package
+
+      # Étape 3 : Exécution des tests et collecte des données de couverture
+      - run:
+          name: Run Tests and Collect Coverage
+          command: mvn verify
+
+      # Étape 4 : Génération du rapport de couverture
+      - run:
+          name: Generate Coverage Report
+          command: mvn jacoco:report
+
+      # Étape 5 : Envoi des données de couverture à Codecov
+      - run:
+          name: Upload Coverage to Codecov
+          command: |
+            echo "Uploading Jacoco report to Codecov"
+            bash <(curl -s https://codecov.io/bash) -f target/site/jacoco/jacoco.xml -t $CODECOV_TOKEN -X verbose
+            echo "Upload terminé"
+
+      # Étape 6 : Génération de la documentation Javadoc
+      - run:
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
+
+      # Étape 7 : Configuration SSH pour le déploiement
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:/6I7KxdVJ6eU8nl2sdFbtzzztPg6NXFFHmbY9yH1YiNQ"
+
+      - run:
+          name: Debug SSH Key Path
+          command: ls -la ~/.ssh
+
+      - run:
+          name: Start SSH Agent and Add Key
+          command: |
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa
+
+      # Étape 8 : Définir les permissions de la clé SSH
+      - run:
+          name: Set Key Permissions
+          command: chmod 600 ~/.ssh/id_rsa
+
+      # Étape 9 : Configuration de Git pour utiliser SSH
+      - run:
+          name: Configure Git to Use SSH
+          command: |
+            git remote set-url origin git@github.com:Oumayma-Bousaid/${CIRCLE_PROJECT_REPONAME}.git
+
+      # Étape 10 : Déploiement de la Javadoc sur GitHub Pages
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            # Configuration de l'utilisateur Git
+            git config --global user.email "oumayma.bousaid@gmail.com"
+            git config --global user.name "Oumayma-Bousaid"
+            
+            # Clonage de la branche gh-pages via SSH
+            git clone --branch gh-pages https://$GITHUB_TOKEN@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages
+            
+            rm -rf gh-pages/*  
+            cp -r target/site/apidocs/* gh-pages/  
+            cd gh-pages
+            
+            # Ajouter les fichiers, commettre et pousser les changements
+            git add .
+            git commit -m "Update Javadoc [skip ci]"
+            git push https://$TOKEN_JAVADOC@github.com/Oumayma-Bousaid/ceri-m1-techniques-de-test.git gh-pages --force
+
+workflows:
+  build-and-upload:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only:
+                - master

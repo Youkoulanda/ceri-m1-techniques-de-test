@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonMetadataProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java-project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonMetadataProvider.java</span></div><h1>PokemonMetadataProvider.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="fc" id="L6">public class PokemonMetadataProvider implements IPokemonMetadataProvider {</span>
+
+    private static final int MAX_POKEMON_INDEX = 151;
+    private static final Map&lt;Integer, PokemonMetadata&gt; pokemonDataMap;
+
+    static {
+<span class="fc" id="L12">        pokemonDataMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L13">        pokemonDataMap.put(0, new PokemonMetadata(0, &quot;Bulbizarre&quot;, 126, 126, 90));</span>
+<span class="fc" id="L14">        pokemonDataMap.put(133, new PokemonMetadata(133, &quot;Aquali&quot;, 186, 186, 260));</span>
+<span class="fc" id="L15">    }</span>
+
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+<span class="fc bfc" id="L19" title="All 4 branches covered.">        if (index &lt; 0 || index &gt; MAX_POKEMON_INDEX) {</span>
+<span class="fc" id="L20">            throw new PokedexException(&quot;Pokemon not found&quot;);</span>
+        }
+
+<span class="fc" id="L23">        PokemonMetadata metadata = pokemonDataMap.get(index);</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        if (metadata != null) {</span>
+<span class="fc" id="L25">            return metadata;</span>
+        }
+
+<span class="nc" id="L28">        throw new PokedexException(&quot;Pokemon metadata source is unavailable&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
