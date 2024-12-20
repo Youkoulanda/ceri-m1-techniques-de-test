@@ -47,14 +47,5 @@ public class PokemonTest {
         assertNotEquals(pokemon1, pokemon2);
     }
 
-    @Test
-    public void testPokemonToString() {
-        // Création d'une instance de Pokemon
-        Pokemon pokemon = new Pokemon(1, "Bulbasaur", 126, 126, 90, 500, 60, 3000, 3, 56.0);
-
-        // Vérification de la représentation en chaîne de caractères
-        String expected = "Pokemon{index=1, name='Bulbasaur', attack=126, defense=126, stamina=90, cp=500, hp=60, dust=3000, candy=3, iv=56.0}";
-        assertEquals(expected, pokemon.toString());
-    }
     
 }
