@@ -42,10 +42,7 @@ jobs:
 
       - run:
           name:  Build docs
-          command:  mvn -B javadoc::javadoc
-      - run:
-          name: Debug - List files
-          command: ls -R target/site
+          command:  mvn -B javadoc:javadoc
       
       - persist_to_workspace:
           root: target/site
