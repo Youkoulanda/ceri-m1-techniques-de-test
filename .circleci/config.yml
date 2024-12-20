@@ -67,7 +67,6 @@ jobs:
             git config --global user.email "loudaaghiles64@gmail.com"
             git config --global user.name "Aghiles"
             echo "am token ${githubpage_Token}"
-            cat ~/.git-credentials
             git config credentials.helper store
       - run:
           name: Deploy docs to gh-pages branch
