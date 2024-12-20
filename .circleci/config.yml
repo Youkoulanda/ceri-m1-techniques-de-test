@@ -45,9 +45,9 @@ jobs:
           command:  mvn -B javadoc::javadoc 
       
       - persist_to_workspace:
-          root: .
+          root: target/site
           paths:
-            - target/site/apidocs
+            - apidocs
 
 
 # Orchestrate jobs using workflows
