@@ -52,7 +52,23 @@ jobs:
           root: .
           paths:
             - doc
-
+  
+  docs-deploy:
+    docker:
+      - image: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: doc
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@klukas.net"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dist doc
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
@@ -61,6 +77,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+      - docs-deploy
 
   
   
