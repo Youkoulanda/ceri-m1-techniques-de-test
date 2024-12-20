@@ -1,5 +1,5 @@
-package fr.univavignon.pokedex.api;
+// package fr.univavignon.pokedex.api;
 
-public class PokemonMetadata {
+// public class PokemonMetadata {
     
-}
+// }
