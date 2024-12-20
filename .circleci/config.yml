@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name:  Build docs
-          command:  javadoc -d doc src\main\java\fr\univavignon\pokedex\api\*
+          command:  javadoc -d doc src/main/java/fr/univavignon/pokedex/api/*
 
       - run:
           name: Debug Javadoc Files
